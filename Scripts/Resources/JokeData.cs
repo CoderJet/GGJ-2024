@@ -1,3 +1,4 @@
+using GGJ24.Scripts.Resources;
 using Godot;
 // Plugin includes.
 //      Resource Registry
@@ -7,9 +8,16 @@ using MonoCustomResourceRegistry;
 [RegisteredType(nameof(JokeData), "", nameof(Resource))]
 public partial class JokeData : Resource
 {
+	public enum JokeType
+	{
+		Topic,
+		Setup,
+		Punchline
+	}
+	
 	[ExportCategory("Joke Data")] 
-	[Export] public string JokeType1;
-	[Export] public string JokeType2;
-	[Export] public string JokeType3;
-	[Export] public Texture2D DisplayTexture;
+	[Export] public string Name;
+	[Export] public JokeType Type;
+	[Export] public JokeColour Colour;
+	[Export] public int ImpactFactor = 1;
 }

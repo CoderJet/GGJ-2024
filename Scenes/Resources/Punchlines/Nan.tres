@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dfwatuhbxuavk"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/JokeData.cs" id="1_t146u"]
+
+[resource]
+script = ExtResource("1_t146u")
+Name = "It was my nan!"
+Type = 2
+Colour = 0
+ImpactFactor = 5
