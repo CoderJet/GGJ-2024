@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project-earth-defence", "project-earth-defence.csproj", "{4B795DB8-3441-4350-8F6E-E73502295A23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGJ-2024", "GGJ-2024.csproj", "{4B795DB8-3441-4350-8F6E-E73502295A23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
