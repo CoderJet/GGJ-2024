@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf27x6txyqcxv"]
+
+[ext_resource type="Texture2D" uid="uid://brfj4jcexlvtj" path="res://Assets/Sprites/PlaceholderBody.png" id="1_yw0il"]
+
+[node name="Spawner" type="Node2D"]
+metadata/Capacity = 1
+
+[node name="Texture" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -50.0
+offset_right = 36.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yw0il")
