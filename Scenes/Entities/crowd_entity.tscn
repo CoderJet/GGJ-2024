@@ -1,18 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgajtjao07evj"]
+[gd_scene load_steps=8 format=3 uid="uid://dgajtjao07evj"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/CrowdEntity.cs" id="1_w4lua"]
 [ext_resource type="Texture2D" uid="uid://dignjbgjotd0h" path="res://Assets/Sprites/guest_body.png" id="2_h0wrm"]
-[ext_resource type="Texture2D" uid="uid://dffjhcdmqcs04" path="res://Assets/Sprites/unfussed_emoji.png" id="3_y6jk0"]
+[ext_resource type="Texture2D" uid="uid://cqn8t6tmgh3hj" path="res://Assets/Sprites/PlaceholderHead.png" id="3_dfrbv"]
+[ext_resource type="Texture2D" uid="uid://cjblkotr4vlrd" path="res://Assets/Sprites/guest_face_1.png" id="3_m4iyx"]
+[ext_resource type="Texture2D" uid="uid://dy05splwar8qd" path="res://Assets/Sprites/guest_face_2.png" id="4_hl7qj"]
+[ext_resource type="Texture2D" uid="uid://brauxrh050i2" path="res://Assets/Sprites/guest_face_3.png" id="5_3d3t0"]
+[ext_resource type="Texture2D" uid="uid://c5q44nv0ntvr" path="res://Assets/Sprites/guest_face_4.png" id="6_qs7wi"]
 
-[node name="CrowdEntity" type="Node2D"]
+[node name="CrowdEntity" type="Node2D" node_paths=PackedStringArray("Body", "Head")]
 script = ExtResource("1_w4lua")
+Body = NodePath("Body")
+Head = NodePath("Head")
+Bodies = Array[Texture2D]([ExtResource("2_h0wrm")])
+Heads = Array[Texture2D]([ExtResource("3_m4iyx"), ExtResource("4_hl7qj"), ExtResource("5_3d3t0"), ExtResource("6_qs7wi")])
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(0, 5)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.35, 0.35)
 texture = ExtResource("2_h0wrm")
 
 [node name="Head" type="Sprite2D" parent="."]
 position = Vector2(0, -59)
 scale = Vector2(2, 2)
-texture = ExtResource("3_y6jk0")
+texture = ExtResource("3_dfrbv")
