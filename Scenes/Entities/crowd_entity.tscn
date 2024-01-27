@@ -1,16 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgajtjao07evj"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/CrowdEntity.cs" id="1_w4lua"]
-[ext_resource type="Texture2D" uid="uid://brfj4jcexlvtj" path="res://Assets/Sprites/PlaceholderBody.png" id="1_xhwvs"]
-[ext_resource type="Texture2D" uid="uid://cqn8t6tmgh3hj" path="res://Assets/Sprites/PlaceholderHead.png" id="2_0u3o6"]
+[ext_resource type="Texture2D" uid="uid://dignjbgjotd0h" path="res://Assets/Sprites/guest_body.png" id="2_h0wrm"]
+[ext_resource type="Texture2D" uid="uid://dffjhcdmqcs04" path="res://Assets/Sprites/unfussed_emoji.png" id="3_y6jk0"]
 
 [node name="CrowdEntity" type="Node2D"]
 script = ExtResource("1_w4lua")
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(0, 5)
-texture = ExtResource("1_xhwvs")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_h0wrm")
 
 [node name="Head" type="Sprite2D" parent="."]
 position = Vector2(0, -59)
-texture = ExtResource("2_0u3o6")
+scale = Vector2(2, 2)
+texture = ExtResource("3_y6jk0")
