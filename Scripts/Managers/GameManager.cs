@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 using Utilities;
 
 public partial class GameManager : Node
@@ -11,10 +12,22 @@ public partial class GameManager : Node
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
-	{
-		crowdManager.OnCrowdPopulated += OnOnCrowdPopulated;
+    {
+        crowdManager.OnSpawnersPopulated += OnOnSpawnersPopulated;
+        crowdManager.OnCrowdPopulated += OnOnCrowdPopulated;
 	}
 
+    private void OnOnSpawnersPopulated()
+    {
+        Logger.Info("populated spawners: " + crowdManager.spawners.Count);
+        foreach (var entity in crowdManager.spawners)
+        {
+            //Logger.Info(((CrowdEntity)entity).TempValue);
+
+            CrowdCollection.AddChild(entity);
+        }
+    }
+    
 	private void OnOnCrowdPopulated()
 	{
 		foreach (var entity in crowdManager.crowd)
@@ -26,7 +39,7 @@ public partial class GameManager : Node
 			
 			Logger.Info(((CrowdEntity)entity).TempValue);
 
-			CrowdCollection.AddChild(entity);
+			//CrowdCollection.AddChild(entity);
 		}
 	}
 

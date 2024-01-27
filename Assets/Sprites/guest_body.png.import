@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxbb574u1bdi0"
-path="res://.godot/imported/unhappy_emoji.png-231ef503e79b9325b35de179d4e86906.ctex"
+uid="uid://dignjbgjotd0h"
+path="res://.godot/imported/guest_body.png-06fd2e6d558fbf92d4f20cf07e756b2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/unhappy_emoji.png"
-dest_files=["res://.godot/imported/unhappy_emoji.png-231ef503e79b9325b35de179d4e86906.ctex"]
+source_file="res://Assets/Sprites/guest_body.png"
+dest_files=["res://.godot/imported/guest_body.png-06fd2e6d558fbf92d4f20cf07e756b2a.ctex"]
 
 [params]
 

@@ -24,7 +24,6 @@ position = Vector2(480, 270)
 texture = ExtResource("1_dhdfg")
 
 [node name="CrowdLayer" type="Node2D" parent="."]
-position = Vector2(480, 270)
 
 [node name="Stage" type="Sprite2D" parent="."]
 position = Vector2(480, 270)
