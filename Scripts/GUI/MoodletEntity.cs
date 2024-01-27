@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Net.Mime;
 
-public partial class MoodletEntity : Control
+public partial class MoodletEntity : Button
 {
 	[Export]
 	public Texture2D Icon

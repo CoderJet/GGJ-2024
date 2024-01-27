@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1si1q2to1jej"]
 
-[ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/PlaceholderMoodletPool.png" id="1_u3wtv"]
+[ext_resource type="Script" path="res://Scripts/Managers/MoodletBuilder.cs" id="1_4h2am"]
 [ext_resource type="PackedScene" uid="uid://diilkk26tajl5" path="res://Scenes/GUI/JokePool.tscn" id="2_dsp44"]
 
-[node name="MoodletBuilder" type="Control"]
+[node name="MoodletBuilder" type="Control" node_paths=PackedStringArray("SetupTopics", "Setup", "PunchlineTopics", "Punchline")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -15,6 +15,11 @@ offset_top = -100.0
 offset_right = 480.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("1_4h2am")
+SetupTopics = NodePath("SetupTopics")
+Setup = NodePath("Setup")
+PunchlineTopics = NodePath("PunchlineTopics")
+Punchline = NodePath("Punchlines")
 
 [node name="SetupTopics" parent="." instance=ExtResource("2_dsp44")]
 offset_top = 5.0
@@ -27,69 +32,6 @@ offset_top = 3.0
 offset_right = 200.0
 offset_bottom = 3.0
 Title = "Setups"
-
-[node name="CenterPoolOld" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 239.0
-offset_top = -543.0
-offset_right = 239.0
-offset_bottom = -543.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Background" type="TextureRect" parent="CenterPoolOld"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 150.0
-texture = ExtResource("1_u3wtv")
-
-[node name="Label" type="Label" parent="CenterPoolOld/Background"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 10.0
-offset_right = 145.0
-offset_bottom = 33.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Setups
-"
-horizontal_alignment = 1
-
-[node name="RightPoolOld" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -199.0
-offset_top = -530.0
-offset_right = -199.0
-offset_bottom = -530.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="Background" type="TextureRect" parent="RightPoolOld"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 150.0
-texture = ExtResource("1_u3wtv")
-
-[node name="Label2" type="Label" parent="RightPoolOld/Background"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 10.0
-offset_right = 145.0
-offset_bottom = 33.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Punchlines"
-horizontal_alignment = 1
 
 [node name="PunchlineTopics" parent="." instance=ExtResource("2_dsp44")]
 offset_left = 755.0

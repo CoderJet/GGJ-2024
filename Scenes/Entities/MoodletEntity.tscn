@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1ehdkurt8pcq"]
 
-[ext_resource type="Script" path="res://Scripts/GUI/TopicEntity.cs" id="1_1pdno"]
+[ext_resource type="Script" path="res://Scripts/GUI/MoodletEntity.cs" id="1_b0fax"]
 [ext_resource type="Texture2D" uid="uid://cbt77y2s561l6" path="res://Assets/Sprites/Tractor.png" id="2_lhkav"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttas2"]
@@ -9,22 +9,15 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[node name="Moodlet" type="Control" node_paths=PackedStringArray("textureRect")]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 32.0
-offset_bottom = 32.0
-script = ExtResource("1_1pdno")
-textureRect = NodePath("Select/Icon")
-
-[node name="Select" type="Button" parent="."]
-layout_mode = 2
+[node name="Moodlet" type="Button" node_paths=PackedStringArray("textureRect")]
 offset_right = 32.0
 offset_bottom = 32.0
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_ttas2")
+script = ExtResource("1_b0fax")
+textureRect = NodePath("Icon")
 
-[node name="Icon" type="TextureRect" parent="Select"]
+[node name="Icon" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
