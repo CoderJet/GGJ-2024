@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgajtjao07evj"]
+
+[ext_resource type="Texture2D" uid="uid://brfj4jcexlvtj" path="res://Assets/Sprites/PlaceholderBody.png" id="1_xhwvs"]
+[ext_resource type="Texture2D" uid="uid://cqn8t6tmgh3hj" path="res://Assets/Sprites/PlaceholderHead.png" id="2_0u3o6"]
+
+[node name="CrowdEntity" type="Node2D"]
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, 64)
+texture = ExtResource("1_xhwvs")
+
+[node name="Head" type="Sprite2D" parent="."]
+texture = ExtResource("2_0u3o6")

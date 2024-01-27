@@ -1,3 +1,134 @@
-[gd_scene format=3 uid="uid://c257tlvys0301"]
+[gd_scene load_steps=6 format=3 uid="uid://c257tlvys0301"]
+
+[ext_resource type="Texture2D" uid="uid://c83a601sn24xu" path="res://Assets/Sprites/PlaceholderWall.png" id="1_dhdfg"]
+[ext_resource type="Texture2D" uid="uid://8deysac84gct" path="res://Assets/Sprites/PlaceholderStage.png" id="4_1adfp"]
+[ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
+[ext_resource type="PackedScene" uid="uid://b1ehdkurt8pcq" path="res://Scenes/Entities/topic_entity.tscn" id="4_kebe4"]
+[ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/PlaceholderMoodletPool.png" id="5_05auu"]
 
 [node name="MainScene" type="Node2D"]
+z_index = 1
+
+[node name="Wall" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("1_dhdfg")
+
+[node name="CrowdLayer" type="Node2D" parent="."]
+position = Vector2(480, 270)
+
+[node name="Stage" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("4_1adfp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(480, 270)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Topics" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 161.0
+offset_top = -60.0
+offset_right = 161.0
+offset_bottom = -60.0
+grow_vertical = 0
+size_flags_horizontal = 4
+
+[node name="Background" type="Sprite2D" parent="UILayer/Topics"]
+texture = ExtResource("5_05auu")
+
+[node name="Label" type="Label" parent="UILayer/Topics"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -64.0
+offset_right = 25.0
+offset_bottom = -41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Topics"
+horizontal_alignment = 1
+
+[node name="Topic" parent="UILayer/Topics" instance=ExtResource("4_kebe4")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = -30.0
+offset_right = 75.0
+offset_bottom = -4.0
+grow_horizontal = 2
+
+[node name="Topic2" parent="UILayer/Topics" instance=ExtResource("4_kebe4")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_right = 75.0
+grow_horizontal = 2
+
+[node name="Setups" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="UILayer/Setups"]
+texture = ExtResource("5_05auu")
+
+[node name="Label" type="Label" parent="UILayer/Setups"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -64.0
+offset_right = 25.0
+offset_bottom = -41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Setups
+"
+horizontal_alignment = 1
+
+[node name="Punchlines" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = 30.0
+offset_right = -160.0
+offset_bottom = 30.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="UILayer/Punchlines"]
+texture = ExtResource("5_05auu")
+
+[node name="Label" type="Label" parent="UILayer/Punchlines"]
+layout_mode = 0
+offset_left = -45.0
+offset_top = -64.0
+offset_right = 45.0
+offset_bottom = -41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Punchlines
+"
+horizontal_alignment = 1
+
+[node name="CrowdMoodBar" parent="UILayer" instance=ExtResource("4_27y2q")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_top = 10.0
+offset_bottom = 10.0
+grow_vertical = 1

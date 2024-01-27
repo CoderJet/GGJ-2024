@@ -4,7 +4,6 @@ using System;
 public partial class GameManager : Node
 {
 	[Export] public CrowdManager crowdManager;
-	[Export] public 
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
