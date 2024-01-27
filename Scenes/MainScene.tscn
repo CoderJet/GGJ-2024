@@ -1,16 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c257tlvys0301"]
+[gd_scene load_steps=8 format=3 uid="uid://c257tlvys0301"]
 
 [ext_resource type="Texture2D" uid="uid://c83a601sn24xu" path="res://Assets/Sprites/PlaceholderWall.png" id="1_dhdfg"]
+[ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
+[ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
 [ext_resource type="Texture2D" uid="uid://8deysac84gct" path="res://Assets/Sprites/PlaceholderStage.png" id="4_1adfp"]
 [ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
 [ext_resource type="PackedScene" uid="uid://b1ehdkurt8pcq" path="res://Scenes/Entities/topic_entity.tscn" id="4_kebe4"]
 [ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/PlaceholderMoodletPool.png" id="5_05auu"]
-[ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
-[ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
 
-[node name="MainScene" type="Node2D" node_paths=PackedStringArray("CrowdCollection", "crowdManager")]
+[node name="MainScene" type="Node2D" node_paths=PackedStringArray("crowdManager")]
 script = ExtResource("1_syii6")
-CrowdCollection = NodePath("CrowdCollection")
 crowdManager = NodePath("CrowdManager")
 
 [node name="CrowdManager" type="Node" parent="."]
@@ -34,8 +33,30 @@ position = Vector2(480, 270)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="Topics" type="Control" parent="UILayer"]
+[node name="CrowdMoodBar" parent="UILayer" instance=ExtResource("4_27y2q")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_top = 10.0
+offset_bottom = 10.0
+grow_vertical = 1
+
+[node name="JokePools" type="Control" parent="UILayer"]
 layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -100.0
+offset_right = 480.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LeftPool" type="Control" parent="UILayer/JokePools"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -46,11 +67,11 @@ offset_bottom = -90.0
 grow_vertical = 0
 size_flags_horizontal = 4
 
-[node name="Background" type="TextureRect" parent="UILayer/Topics"]
+[node name="Background" type="TextureRect" parent="UILayer/JokePools/LeftPool"]
 layout_mode = 0
 texture = ExtResource("5_05auu")
 
-[node name="Label" type="Label" parent="UILayer/Topics/Background"]
+[node name="Label" type="Label" parent="UILayer/JokePools/LeftPool/Background"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -64,7 +85,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Topics"
 horizontal_alignment = 1
 
-[node name="Topic" parent="UILayer/Topics" instance=ExtResource("4_kebe4")]
+[node name="Topic" parent="UILayer/JokePools/LeftPool" instance=ExtResource("4_kebe4")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -75,7 +96,7 @@ offset_right = 56.0
 offset_bottom = 72.0
 grow_horizontal = 2
 
-[node name="Topic2" parent="UILayer/Topics" instance=ExtResource("4_kebe4")]
+[node name="Topic2" parent="UILayer/JokePools/LeftPool" instance=ExtResource("4_kebe4")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -86,7 +107,7 @@ offset_right = 96.0
 offset_bottom = 72.0
 grow_horizontal = 2
 
-[node name="Topic3" parent="UILayer/Topics" instance=ExtResource("4_kebe4")]
+[node name="Topic3" parent="UILayer/JokePools/LeftPool" instance=ExtResource("4_kebe4")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -97,7 +118,7 @@ offset_right = 136.0
 offset_bottom = 72.0
 grow_horizontal = 2
 
-[node name="Topic4" parent="UILayer/Topics" instance=ExtResource("4_kebe4")]
+[node name="Topic4" parent="UILayer/JokePools/LeftPool" instance=ExtResource("4_kebe4")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -108,38 +129,8 @@ offset_right = 176.0
 offset_bottom = 72.0
 grow_horizontal = 2
 
-[node name="Punchlines" type="Control" parent="UILayer"]
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -260.0
-offset_top = -40.0
-offset_right = -260.0
-offset_bottom = -40.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="Background" type="TextureRect" parent="UILayer/Punchlines"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 150.0
-texture = ExtResource("5_05auu")
-
-[node name="Label2" type="Label" parent="UILayer/Punchlines/Background"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 10.0
-offset_right = 145.0
-offset_bottom = 33.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Punchlines"
-horizontal_alignment = 1
-
-[node name="Setups" type="Control" parent="UILayer"]
-layout_mode = 3
+[node name="CenterPool" type="Control" parent="UILayer/JokePools"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -152,13 +143,13 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Background" type="TextureRect" parent="UILayer/Setups"]
+[node name="Background" type="TextureRect" parent="UILayer/JokePools/CenterPool"]
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 150.0
 texture = ExtResource("5_05auu")
 
-[node name="Label" type="Label" parent="UILayer/Setups/Background"]
+[node name="Label" type="Label" parent="UILayer/JokePools/CenterPool/Background"]
 layout_mode = 0
 offset_left = 55.0
 offset_top = 10.0
@@ -169,11 +160,32 @@ text = "Setups
 "
 horizontal_alignment = 1
 
-[node name="CrowdMoodBar" parent="UILayer" instance=ExtResource("4_27y2q")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.0
+[node name="RightPool" type="Control" parent="UILayer/JokePools"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -40.0
+offset_right = -260.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Background" type="TextureRect" parent="UILayer/JokePools/RightPool"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 150.0
+texture = ExtResource("5_05auu")
+
+[node name="Label2" type="Label" parent="UILayer/JokePools/RightPool/Background"]
+layout_mode = 0
+offset_left = 55.0
 offset_top = 10.0
-offset_bottom = 10.0
-grow_vertical = 1
+offset_right = 145.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Punchlines"
+horizontal_alignment = 1
