@@ -7,7 +7,7 @@ public partial class GameManager : Node
 	[ExportCategory("Crowd Config")] 
 	[Export] public Node CrowdCollection;
 	[Export] public CrowdManager crowdManager;
-	[Export] public JokeBuilder jokeBuilder;
+	[Export] public MoodletBuilder MoodletBuilder;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

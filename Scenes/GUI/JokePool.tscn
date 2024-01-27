@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://diilkk26tajl5"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/JokePool.cs" id="1_8ghn6"]
+[ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/PlaceholderMoodletPool.png" id="1_nki4p"]
+[ext_resource type="Texture2D" uid="uid://cbt77y2s561l6" path="res://Assets/Sprites/Tractor.png" id="2_uos0m"]
+[ext_resource type="Texture2D" uid="uid://blm0gfjh7cjck" path="res://Assets/Sprites/emote_idea.png" id="4_l8rie"]
+[ext_resource type="Texture2D" uid="uid://dt76gm8jshwjt" path="res://Assets/Sprites/emote_cash.png" id="4_mipnu"]
+[ext_resource type="Texture2D" uid="uid://dtptsgrfhgve3" path="res://Assets/Sprites/emote_heart.png" id="5_jtfkg"]
+[ext_resource type="PackedScene" uid="uid://b1ehdkurt8pcq" path="res://Scenes/Entities/MoodletEntity.tscn" id="7_85rcn"]
+
+[node name="LeftPool" type="Control" node_paths=PackedStringArray("PoolTitle")]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+script = ExtResource("1_8ghn6")
+Title = "Topic"
+PoolTitle = NodePath("Background/Label")
+moodletIcons = [ExtResource("2_uos0m"), ExtResource("4_mipnu"), ExtResource("4_l8rie"), ExtResource("5_jtfkg")]
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+texture = ExtResource("1_nki4p")
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Topic"
+horizontal_alignment = 1
+
+[node name="Moodlets" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Moodlet" parent="Moodlets" instance=ExtResource("7_85rcn")]
+offset_left = 26.0
+offset_top = 35.0
+offset_right = 58.0
+offset_bottom = 67.0
+
+[node name="Moodlet2" parent="Moodlets" instance=ExtResource("7_85rcn")]
+offset_left = 62.0
+offset_top = 36.0
+offset_right = 94.0
+offset_bottom = 68.0
+
+[node name="Moodlet3" parent="Moodlets" instance=ExtResource("7_85rcn")]
+offset_left = 100.0
+offset_top = 36.0
+offset_right = 132.0
+offset_bottom = 68.0
+
+[node name="Moodlet4" parent="Moodlets" instance=ExtResource("7_85rcn")]
+offset_left = 139.0
+offset_top = 36.0
+offset_right = 171.0
+offset_bottom = 68.0
