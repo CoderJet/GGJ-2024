@@ -37,9 +37,11 @@ public partial class GameManager : Node
         crowdManager.GenerateSpawners();
         crowdManager.GenerateCrowd();
 
-		// Split each moodlet 
-		for(int i = 0; i < crowdManager.CrowdSize; i++)
-		{
+        Logger.Info("Moodlet loop");
+        // Split each moodlet 
+        for (int i = 0; i < crowdManager.CrowdSize; i++)
+        {
+            Logger.Info("Moodlet loop inside");
             //cis - comedy is subjective
             Random cis = new Random();
 			Array<MoodletData> entity_moods = new Array<MoodletData>();
