@@ -9,10 +9,10 @@ public partial class MoodletPoolCollection : Control
 	[Export] public Control PunchlineTopics;
 	[Export] public Control Punchline;
 
-	private MoodletData SetupTopicMoodlet;
-	private MoodletData SetupMoodlet;
-	private MoodletData PunchlineTopicsMoodlet;
-	private MoodletData PunchlineMoodlet;
+	public MoodletData SetupTopicMoodlet;
+	public MoodletData SetupMoodlet;
+	public MoodletData PunchlineTopicsMoodlet;
+	public MoodletData PunchlineMoodlet;
 
 	private Array<MoodletData> moodletCollection;
 	
