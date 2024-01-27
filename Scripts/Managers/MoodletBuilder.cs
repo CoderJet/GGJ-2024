@@ -6,28 +6,16 @@ using Godot.Collections;
 using Utilities;
 using FileAccess = Godot.FileAccess;
 
-public partial class MoodletBuilder : Control
+public class MoodletBuilder
 {
-	[Export] public Control SetupTopics;
-	[Export] public Control Setup;
-	[Export] public Control PunchlineTopics;
-	[Export] public Control Punchline;
-
-	private MoodletData SetupTopicMoodlet;
-	private MoodletData SetupMoodlet;
-	private MoodletData PunchlineTopicsMoodlet;
-	private MoodletData PunchlineMoodlet;
-
-	private Array<MoodletData> moodletCollection;
+	public static MoodletBuilder Instance => instance ?? new MoodletBuilder();
+	private static MoodletBuilder instance;
 	
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	
+	private static Array<MoodletData> moodletCollection;
+
+	public MoodletBuilder()
 	{
-		((JokePool)SetupTopics).OnMoodletSelected += OnSetupTopicsMoodletSelected;
-		((JokePool)Setup).OnMoodletSelected += OnSetupMoodletSelected;
-		((JokePool)PunchlineTopics).OnMoodletSelected += OnPunchlineTopicsMoodletSelected;
-		((JokePool)Punchline).OnMoodletSelected += OnPunchlineMoodletSelected;
-		
 		// res://Scenes/Resources/Moodlets/
 		moodletCollection = new Array<MoodletData>();
 		using var dir = DirAccess.Open("res://Scenes/Resources/Moodlets");
@@ -48,39 +36,8 @@ public partial class MoodletBuilder : Control
 				moodletCollection.Add(t);
 			}
 			fileName = dir.GetNext();
-		}
-		
-		(SetupTopics as JokePool).GenerateMoodletEntities(GenerateMoodletList());
-		(Setup as JokePool).GenerateMoodletEntities(GenerateMoodletList());
-		(PunchlineTopics as JokePool).GenerateMoodletEntities(GenerateMoodletList());
-		(Punchline as JokePool).GenerateMoodletEntities(GenerateMoodletList());
+		}		
 	}
-
-	private void OnSetupTopicsMoodletSelected(MoodletData data)
-	{
-		SetupTopicMoodlet = data;
-	}
-
-	private void OnSetupMoodletSelected(MoodletData data)
-	{
-		SetupMoodlet = data;
-	}
-
-	private void OnPunchlineTopicsMoodletSelected(MoodletData data)
-	{
-		PunchlineTopicsMoodlet = data;
-	}
-
-	private void OnPunchlineMoodletSelected(MoodletData data)
-	{
-		PunchlineMoodlet = data;
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
 	public Array<MoodletData> GenerateMoodletList(int qty = 4)
 	{
 		Array<MoodletData> data = new Array<MoodletData>();

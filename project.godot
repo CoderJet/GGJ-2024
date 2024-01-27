@@ -21,6 +21,10 @@ run/main_scene="res://Scenes/MainScene.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MoodletBuilder="*res://Scripts/Managers/MoodletBuilder.cs"
+
 [display]
 
 window/size/viewport_width=960
@@ -34,3 +38,7 @@ project/assembly_name="GGJ-2024"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/MonoCustomResourceRegistry/plugin.cfg")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

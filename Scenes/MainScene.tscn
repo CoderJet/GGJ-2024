@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dgajtjao07evj" path="res://Scenes/Entities/crowd_entity.tscn" id="2_c8lvu"]
 [ext_resource type="PackedScene" path="res://Scenes/Entities/spawner.tscn" id="3_orsmw"]
 [ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
-[ext_resource type="PackedScene" uid="uid://d1si1q2to1jej" path="res://Scenes/GUI/joke_pools.tscn" id="7_g0agk"]
+[ext_resource type="PackedScene" uid="uid://d1si1q2to1jej" path="res://Scenes/GUI/MoodletPools.tscn" id="7_g0agk"]
 
 [node name="MainScene" type="Node2D"]
 

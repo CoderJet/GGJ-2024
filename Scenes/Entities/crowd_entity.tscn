@@ -1,18 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgajtjao07evj"]
+[gd_scene load_steps=13 format=3 uid="uid://dgajtjao07evj"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/CrowdEntity.cs" id="1_w4lua"]
+[ext_resource type="Texture2D" uid="uid://ccx235nq4j8ym" path="res://Assets/Sprites/guest_body_1.png" id="2_cwo7u"]
 [ext_resource type="Texture2D" uid="uid://dignjbgjotd0h" path="res://Assets/Sprites/guest_body.png" id="2_h0wrm"]
 [ext_resource type="Texture2D" uid="uid://cqn8t6tmgh3hj" path="res://Assets/Sprites/PlaceholderHead.png" id="3_dfrbv"]
 [ext_resource type="Texture2D" uid="uid://cjblkotr4vlrd" path="res://Assets/Sprites/guest_face_1.png" id="3_m4iyx"]
+[ext_resource type="Texture2D" uid="uid://cgucrhx3t1s8t" path="res://Assets/Sprites/guest_body_2.png" id="3_so0mn"]
 [ext_resource type="Texture2D" uid="uid://dy05splwar8qd" path="res://Assets/Sprites/guest_face_2.png" id="4_hl7qj"]
+[ext_resource type="Texture2D" uid="uid://l1gu15eeyxml" path="res://Assets/Sprites/guest_body_3.png" id="4_wd2yo"]
+[ext_resource type="Texture2D" uid="uid://c1vy5imo0xqsc" path="res://Assets/Sprites/guest_body_4.png" id="5_1kxqg"]
 [ext_resource type="Texture2D" uid="uid://brauxrh050i2" path="res://Assets/Sprites/guest_face_3.png" id="5_3d3t0"]
+[ext_resource type="Texture2D" uid="uid://cu3jm5grynywc" path="res://Assets/Sprites/guest_body_5.png" id="6_2chas"]
 [ext_resource type="Texture2D" uid="uid://c5q44nv0ntvr" path="res://Assets/Sprites/guest_face_4.png" id="6_qs7wi"]
 
 [node name="CrowdEntity" type="Node2D" node_paths=PackedStringArray("Body", "Head")]
 script = ExtResource("1_w4lua")
 Body = NodePath("Body")
 Head = NodePath("Head")
-Bodies = Array[Texture2D]([ExtResource("2_h0wrm")])
+Bodies = Array[Texture2D]([ExtResource("2_cwo7u"), ExtResource("3_so0mn"), ExtResource("4_wd2yo"), ExtResource("5_1kxqg"), ExtResource("6_2chas")])
 Heads = Array[Texture2D]([ExtResource("3_m4iyx"), ExtResource("4_hl7qj"), ExtResource("5_3d3t0"), ExtResource("6_qs7wi")])
 
 [node name="Body" type="Sprite2D" parent="."]

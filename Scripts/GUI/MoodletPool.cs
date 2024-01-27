@@ -5,7 +5,7 @@ using Godot.Collections;
 using Utilities;
 
 [Tool]
-public partial class JokePool : Control
+public partial class MoodletPool : Control
 {
 	[Export] public string Title;
 	[Export] public Label PoolTitle;
