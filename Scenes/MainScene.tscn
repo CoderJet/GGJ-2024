@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://c257tlvys0301"]
+[gd_scene load_steps=9 format=3 uid="uid://c257tlvys0301"]
 
 [ext_resource type="Texture2D" uid="uid://c83a601sn24xu" path="res://Assets/Sprites/PlaceholderWall.png" id="1_dhdfg"]
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
 [ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
 [ext_resource type="PackedScene" uid="uid://dgajtjao07evj" path="res://Scenes/Entities/crowd_entity.tscn" id="2_c8lvu"]
+[ext_resource type="PackedScene" uid="uid://cf27x6txyqcxv" path="res://Scenes/Entities/spawner.tscn" id="3_orsmw"]
 [ext_resource type="Texture2D" uid="uid://8deysac84gct" path="res://Assets/Sprites/PlaceholderStage.png" id="4_1adfp"]
 [ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
-[ext_resource type="PackedScene" uid="uid://d1si1q2to1jej" path="res://Scenes/GUI/joke_pools.tscn" id="7_g0agk"]
+[ext_resource type="PackedScene" path="res://Scenes/GUI/joke_pools.tscn" id="7_g0agk"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -17,14 +18,16 @@ crowdManager = NodePath("../CrowdManager")
 
 [node name="CrowdManager" type="Node" parent="."]
 script = ExtResource("2_5p3uy")
+CrowdSpawner = ExtResource("3_orsmw")
 CrowdEntity = ExtResource("2_c8lvu")
+VenueSize = Vector2(7, 3)
+CrowdSize = 12
 
 [node name="Wall" type="Sprite2D" parent="."]
 position = Vector2(480, 270)
 texture = ExtResource("1_dhdfg")
 
 [node name="CrowdLayer" type="Node2D" parent="."]
-position = Vector2(480, 270)
 
 [node name="Stage" type="Sprite2D" parent="."]
 position = Vector2(480, 270)
