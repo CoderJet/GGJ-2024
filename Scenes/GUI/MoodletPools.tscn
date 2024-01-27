@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1si1q2to1jej"]
+[gd_scene load_steps=9 format=3 uid="uid://7gjxwangx8re"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/MoodletPoolCollection.cs" id="1_jpp2c"]
 [ext_resource type="PackedScene" uid="uid://diilkk26tajl5" path="res://Scenes/GUI/JokePool.tscn" id="2_dsp44"]
@@ -218,8 +218,8 @@ grow_vertical = 0
 script = ExtResource("1_jpp2c")
 SetupTopics = NodePath("SetupTopics")
 Setup = NodePath("Setup")
-PunchlineTopics = NodePath("PunchlineTopics")
-Punchline = NodePath("Punchlines")
+PunchlineTopics = NodePath("Punchlines")
+Punchline = NodePath("PunchlineTopics")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
