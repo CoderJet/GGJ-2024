@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjvd1kaixh1jy"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/CrowdMoodBar.cs" id="1_bx583"]
+[ext_resource type="Texture2D" uid="uid://bhyhitls7rf5s" path="res://icon.svg" id="1_ex3d8"]
+
+[node name="CrowdMoodBar" type="Control" node_paths=PackedStringArray("moonBar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bx583")
+moonBar = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0.258824, 0.286275, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_top = 13.0
+offset_right = 109.0
+offset_bottom = 40.0
+grow_horizontal = 2
+value = 75.0
+allow_lesser = true
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 0.360784, 0.356863, 1)
+layout_mode = 0
+offset_left = 407.0
+offset_top = 3.0
+offset_right = 455.0
+offset_bottom = 51.0
+texture = ExtResource("1_ex3d8")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0.45098, 0.819608, 0, 1)
+layout_mode = 0
+offset_left = 692.0
+offset_top = 7.0
+offset_right = 740.0
+offset_bottom = 55.0
+texture = ExtResource("1_ex3d8")
+expand_mode = 1
