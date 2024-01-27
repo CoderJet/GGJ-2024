@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c257tlvys0301"]
+[gd_scene load_steps=8 format=3 uid="uid://c257tlvys0301"]
 
 [ext_resource type="Texture2D" uid="uid://c83a601sn24xu" path="res://Assets/Sprites/PlaceholderWall.png" id="1_dhdfg"]
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
@@ -20,6 +20,8 @@ crowdManager = NodePath("../CrowdManager")
 script = ExtResource("2_5p3uy")
 CrowdSpawner = ExtResource("3_orsmw")
 CrowdEntity = ExtResource("2_c8lvu")
+VenueSize = Vector2(7, 3)
+CrowdSize = 12
 
 [node name="Wall" type="Sprite2D" parent="."]
 position = Vector2(480, 270)
@@ -29,8 +31,9 @@ texture = ExtResource("1_dhdfg")
 
 [node name="Stage" type="Sprite2D" parent="."]
 z_index = 12
-position = Vector2(480, 270)
-texture = ExtResource("4_1adfp")
+position = Vector2(480, 472)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_7flgk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 270)
