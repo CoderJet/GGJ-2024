@@ -1,0 +1,152 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1si1q2to1jej"]
+
+[ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/PlaceholderMoodletPool.png" id="1_u3wtv"]
+[ext_resource type="PackedScene" uid="uid://b1ehdkurt8pcq" path="res://Scenes/Entities/topic_entity.tscn" id="2_cv3rw"]
+
+[node name="JokePools" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -100.0
+offset_right = 480.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LeftPool" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -90.0
+offset_right = 60.0
+offset_bottom = -90.0
+grow_vertical = 0
+size_flags_horizontal = 4
+
+[node name="Background" type="TextureRect" parent="LeftPool"]
+layout_mode = 0
+texture = ExtResource("1_u3wtv")
+
+[node name="Label" type="Label" parent="LeftPool/Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Topics"
+horizontal_alignment = 1
+
+[node name="Topic" parent="LeftPool" instance=ExtResource("2_cv3rw")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 56.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="Topic2" parent="LeftPool" instance=ExtResource("2_cv3rw")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="Topic3" parent="LeftPool" instance=ExtResource("2_cv3rw")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 104.0
+offset_top = 40.0
+offset_right = 136.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="Topic4" parent="LeftPool" instance=ExtResource("2_cv3rw")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 144.0
+offset_top = 40.0
+offset_right = 176.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="CenterPool" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -40.0
+offset_right = -100.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Background" type="TextureRect" parent="CenterPool"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 150.0
+texture = ExtResource("1_u3wtv")
+
+[node name="Label" type="Label" parent="CenterPool/Background"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 10.0
+offset_right = 145.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Setups
+"
+horizontal_alignment = 1
+
+[node name="RightPool" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -40.0
+offset_right = -260.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Background" type="TextureRect" parent="RightPool"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 150.0
+texture = ExtResource("1_u3wtv")
+
+[node name="Label2" type="Label" parent="RightPool/Background"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 10.0
+offset_right = 145.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Punchlines"
+horizontal_alignment = 1
