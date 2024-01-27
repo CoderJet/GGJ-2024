@@ -8,12 +8,6 @@ using MonoCustomResourceRegistry;
 [RegisteredType(nameof(MoodletData), "", nameof(Resource))]
 public partial class MoodletData : Resource
 {
-	public enum JokeType
-	{
-		Left,
-		Middle,
-		Right
-	}
 	
 	[ExportCategory("Joke Data")] 
 	[Export] public Texture2D icon;

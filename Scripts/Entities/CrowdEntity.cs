@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ public partial class CrowdEntity : Node2D
 {
 	public int TempValue;
 
-	public List<MoodletData> moodletData;
+	public Array<MoodletData> moodletData;
 
     [Export] Sprite2D Body;
     [Export] Sprite2D Head;
@@ -39,8 +40,8 @@ public partial class CrowdEntity : Node2D
         Head.Texture = Heads[rand.Next(0, Heads.Count())];
     }
 
-	public void GeneratePersonality(int topic, int setup, int punchline)
+	public void GeneratePersonality(Array<MoodletData> moodlets)
 	{
-		
+		moodletData = moodlets;
 	}
 }

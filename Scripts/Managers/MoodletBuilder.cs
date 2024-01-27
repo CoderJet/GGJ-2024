@@ -5,17 +5,26 @@ using System.IO;
 using Godot.Collections;
 using Utilities;
 using FileAccess = Godot.FileAccess;
+using System.Linq;
+
+
+public enum JokeType
+{
+    Left,
+    Middle,
+    Right
+}
 
 public partial class MoodletBuilder : Node
 {
 	public static MoodletBuilder Instance => instance ?? new MoodletBuilder();
 	private static MoodletBuilder instance;
-	
-	
+		
 	private static Array<MoodletData> moodletCollection;
 
-	public MoodletBuilder()
+    public MoodletBuilder()
 	{
+
 		// res://Scenes/Resources/Moodlets/
 		moodletCollection = new Array<MoodletData>();
 		using var dir = DirAccess.Open("res://Scenes/Resources/Moodlets");
@@ -38,17 +47,18 @@ public partial class MoodletBuilder : Node
 			fileName = dir.GetNext();
 		}		
 	}
-	public Array<MoodletData> GenerateMoodletList(int qty = 4)
+	public Array<MoodletData> GenerateMoodletList(JokeType type, int qty = 4)
 	{
 		Array<MoodletData> data = new Array<MoodletData>();
 
+		Array<MoodletData> sub_list = new Array<MoodletData>(moodletCollection.Where(x => x.Type == type));
 		for (var i = 0; i < qty; i++)
 		{
 			MoodletData temp;
 			
 			do
 			{
-				temp = moodletCollection.PickRandom();
+				temp = sub_list.PickRandom();
 			} while (data.Contains(temp));
 			data.Add(temp);
 		}

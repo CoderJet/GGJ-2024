@@ -14,9 +14,13 @@ public partial class GameManager : Node
 	#region moodlet_settings
 	// Applies to all pools
 	[Export] public int moodletCount;
-    public Array<MoodletData> moodletSet;
 	// How to distribute the moodlets we assign (e.g. 0.4,0.3,0.2,0.1 would do 40%, 30%, 20%, 10%). 
 	[Export] public Array<float> MoodletWeighting;
+
+    public Array<MoodletData> topicSet;
+    public Array<MoodletData> setupSet;
+    public Array<MoodletData> punchlineSet;
+
     #endregion
 
     // Called when the node enters the scene tree for the first time.
@@ -26,7 +30,9 @@ public partial class GameManager : Node
         crowdManager.OnCrowdPopulated += OnOnCrowdPopulated;
 
         // Run moodlet builder to populate MoodletCount random moodlets for the set
-        moodletSet = MoodletBuilder.Instance.GenerateMoodletList(moodletCount);
+        topicSet = MoodletBuilder.Instance.GenerateMoodletList(JokeType.Left, moodletCount);
+        setupSet = MoodletBuilder.Instance.GenerateMoodletList(JokeType.Middle, moodletCount);
+        punchlineSet = MoodletBuilder.Instance.GenerateMoodletList(JokeType.Right, moodletCount);
 
         crowdManager.GenerateSpawners();
         crowdManager.GenerateCrowd();
@@ -34,9 +40,15 @@ public partial class GameManager : Node
 		// Split each moodlet 
 		for(int i = 0; i < crowdManager.CrowdSize; i++)
 		{
-			//cis - comedy is subjective
-			Random cis = new Random();
-			((CrowdEntity)crowdManager.crowd[i]).GeneratePersonality(cis.Next(0, moodletCount), cis.Next(0, moodletCount), cis.Next(0, moodletCount));
+            //cis - comedy is subjective
+            Random cis = new Random();
+			Array<MoodletData> entity_moods = new Array<MoodletData>();
+			entity_moods.Add(topicSet[cis.Next(0, moodletCount)]);
+			entity_moods.Add(setupSet[cis.Next(0, moodletCount)]);
+			entity_moods.Add(punchlineSet[cis.Next(0, moodletCount)]);
+
+
+            ((CrowdEntity)crowdManager.crowd[i]).GeneratePersonality(entity_moods);
 		}
 
     }
@@ -73,23 +85,4 @@ public partial class GameManager : Node
 		
 	}
 
-	//Returns the first shuffle_size randomly sorted indexes from 1 to maxValue
-	public List<int> ShuffleIndexes(int maxValue, int shuffle_size)
-	{
-		List<int> shuffled_ids = new List<int>();
-		List<int> unshuffled = new List<int>();
-		for (int i = 0; i < maxValue; i++)
-			unshuffled.Add(i);
-
-		Random rand = new Random();
-
-		for(int i = 0; i < shuffle_size; i++)
-		{
-			int index = rand.Next(unshuffled.Count);
-			shuffled_ids.Add(unshuffled[index]);
-			unshuffled.RemoveAt(index);
-		}
-
-		return shuffled_ids;
-	}
 }

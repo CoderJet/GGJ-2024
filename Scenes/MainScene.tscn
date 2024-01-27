@@ -15,6 +15,8 @@
 script = ExtResource("1_syii6")
 CrowdCollection = NodePath("../CrowdLayer")
 crowdManager = NodePath("../CrowdManager")
+moodletCount = 3
+MoodletWeighting = Array[float]([45.0, 35.0, 20.0])
 
 [node name="CrowdManager" type="Node" parent="."]
 script = ExtResource("2_5p3uy")
