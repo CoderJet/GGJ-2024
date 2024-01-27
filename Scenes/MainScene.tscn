@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
 [ext_resource type="PackedScene" uid="uid://dgajtjao07evj" path="res://Scenes/Entities/crowd_entity.tscn" id="2_c8lvu"]
 [ext_resource type="PackedScene" uid="uid://cf27x6txyqcxv" path="res://Scenes/Entities/spawner.tscn" id="3_rskyb"]
-[ext_resource type="Texture2D" uid="uid://8deysac84gct" path="res://Assets/Sprites/PlaceholderStage.png" id="4_1adfp"]
 [ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
+[ext_resource type="Texture2D" uid="uid://tmhcb2ryreo5" path="res://Assets/Sprites/stage.png" id="6_7flgk"]
 [ext_resource type="PackedScene" path="res://Scenes/GUI/joke_pools.tscn" id="7_g0agk"]
 
 [node name="MainScene" type="Node2D"]
@@ -31,8 +31,9 @@ texture = ExtResource("1_dhdfg")
 
 [node name="Stage" type="Sprite2D" parent="."]
 z_index = 12
-position = Vector2(480, 270)
-texture = ExtResource("4_1adfp")
+position = Vector2(480, 472)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_7flgk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 270)
