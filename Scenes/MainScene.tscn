@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://c257tlvys0301"]
+[gd_scene load_steps=3 format=3 uid="uid://c257tlvys0301"]
 
-[node name="MainScene" type="Node2D"]
+[ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
+[ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
+
+[node name="MainScene" type="Node2D" node_paths=PackedStringArray("CrowdCollection", "crowdManager")]
+script = ExtResource("1_syii6")
+CrowdCollection = NodePath("CrowdCollection")
+crowdManager = NodePath("CrowdManager")
+
+[node name="CrowdManager" type="Node" parent="."]
+script = ExtResource("2_5p3uy")
+
+[node name="CrowdCollection" type="Node" parent="."]
