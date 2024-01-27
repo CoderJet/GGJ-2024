@@ -10,17 +10,10 @@ public partial class GameManager : Node
 	[ExportCategory("Crowd Config")] 
 	[Export] public Node CrowdCollection;
 	[Export] public CrowdManager crowdManager;
-<<<<<<< Updated upstream
-	//[Export] public MoodletBuilder MoodletBuilder;
-	
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-=======
-	[Export] public MoodletBuilder moodletBuilder;
 
 	#region moodlet_settings
 	// Applies to all pools
-	[Export] public int setMoodletCount;
+	[Export] public int moodletCount;
     public Array<MoodletData> moodletSet;
 	// How to distribute the moodlets we assign (e.g. 0.4,0.3,0.2,0.1 would do 40%, 30%, 20%, 10%). 
 	[Export] public Array<float> MoodletWeighting;
@@ -28,19 +21,23 @@ public partial class GameManager : Node
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
->>>>>>> Stashed changes
     {
         crowdManager.OnSpawnersPopulated += OnOnSpawnersPopulated;
         crowdManager.OnCrowdPopulated += OnOnCrowdPopulated;
 
         // Run moodlet builder to populate MoodletCount random moodlets for the set
-        moodletSet = moodletBuilder.GenerateMoodletList(setMoodletCount);
+        moodletSet = MoodletBuilder.Instance.GenerateMoodletList(moodletCount);
 
         crowdManager.GenerateSpawners();
         crowdManager.GenerateCrowd();
 
 		// Split each moodlet 
-		for(int i = crowdManager.CrowdSize)
+		for(int i = 0; i < crowdManager.CrowdSize; i++)
+		{
+			//cis - comedy is subjective
+			Random cis = new Random();
+			((CrowdEntity)crowdManager.crowd[i]).GeneratePersonality(cis.Next(0, moodletCount), cis.Next(0, moodletCount), cis.Next(0, moodletCount));
+		}
 
     }
 
