@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=8 format=3 uid="uid://c257tlvys0301"]
-=======
-[gd_scene load_steps=10 format=3 uid="uid://c257tlvys0301"]
->>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://c83a601sn24xu" path="res://Assets/Sprites/PlaceholderWall.png" id="1_dhdfg"]
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
@@ -10,13 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dgajtjao07evj" path="res://Scenes/Entities/crowd_entity.tscn" id="2_c8lvu"]
 [ext_resource type="Texture2D" uid="uid://8deysac84gct" path="res://Assets/Sprites/PlaceholderStage.png" id="4_1adfp"]
 [ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://d1si1q2to1jej" path="res://Scenes/GUI/joke_pools.tscn" id="7_g0agk"]
-=======
-[ext_resource type="PackedScene" uid="uid://b1ehdkurt8pcq" path="res://Scenes/Entities/topic_entity.tscn" id="4_kebe4"]
-[ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/PlaceholderMoodletPool.png" id="5_05auu"]
-[ext_resource type="PackedScene" uid="uid://cf27x6txyqcxv" path="res://Scenes/Entities/spawner.tscn" id="5_dv4rl"]
->>>>>>> Stashed changes
 
 [node name="MainScene" type="Node2D"]
 
@@ -27,19 +17,16 @@ crowdManager = NodePath("../CrowdManager")
 
 [node name="CrowdManager" type="Node" parent="."]
 script = ExtResource("2_5p3uy")
-CrowdSpawner = ExtResource("5_dv4rl")
 CrowdEntity = ExtResource("2_c8lvu")
-VenueSize = Vector2(4, 3)
-CrowdSize = 13
 
 [node name="Wall" type="Sprite2D" parent="."]
 position = Vector2(480, 270)
 texture = ExtResource("1_dhdfg")
 
 [node name="CrowdLayer" type="Node2D" parent="."]
+position = Vector2(480, 270)
 
 [node name="Stage" type="Sprite2D" parent="."]
-z_index = 20
 position = Vector2(480, 270)
 texture = ExtResource("4_1adfp")
 
