@@ -1,9 +1,11 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dfwatuhbxuavk"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dfwatuhbxuavk"]
 
-[ext_resource type="Script" path="res://Scripts/Resources/JokeData.cs" id="1_2ul0m"]
+[ext_resource type="Texture2D" uid="uid://xp74qcf215x2" path="res://Assets/Sprites/emote_star.png" id="1_xapj3"]
+[ext_resource type="Script" path="res://Scripts/Resources/MoodletData.cs" id="2_jfcbh"]
 
 [resource]
-script = ExtResource("1_2ul0m")
-Type = 1
-Colour = 1
-ImpactFactor = 5
+script = ExtResource("2_jfcbh")
+icon = ExtResource("1_xapj3")
+Type = 0
+Colour = 0
+ImpactFactor = 1

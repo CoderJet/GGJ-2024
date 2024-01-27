@@ -1,3 +1,11 @@
-[gd_resource type="Resource" format=3 uid="uid://cg2vdboeu4f8k"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cg2vdboeu4f8k"]
+
+[ext_resource type="Texture2D" uid="uid://cbt77y2s561l6" path="res://Assets/Sprites/Tractor.png" id="1_d84qo"]
+[ext_resource type="Script" path="res://Scripts/Resources/MoodletData.cs" id="2_utyb7"]
 
 [resource]
+script = ExtResource("2_utyb7")
+icon = ExtResource("1_d84qo")
+Type = 0
+Colour = 0
+ImpactFactor = 1

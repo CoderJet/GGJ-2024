@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b2re0tya6o33h"]
+
+[ext_resource type="Texture2D" uid="uid://blm0gfjh7cjck" path="res://Assets/Sprites/emote_idea.png" id="1_dgq4y"]
+[ext_resource type="Script" path="res://Scripts/Resources/MoodletData.cs" id="2_8snm8"]
+
+[resource]
+script = ExtResource("2_8snm8")
+icon = ExtResource("1_dgq4y")
+Type = 0
+Colour = 0
+ImpactFactor = 1

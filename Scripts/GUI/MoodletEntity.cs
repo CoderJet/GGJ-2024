@@ -1,23 +1,22 @@
 using Godot;
 using System;
 using System.Net.Mime;
+using GGJ24.Scripts.Resources;
 
 public partial class MoodletEntity : Button
 {
-	[Export]
-	public Texture2D Icon
+	public void SetMoodlet(MoodletData value)
 	{
-		get => textureRect?.Texture;
-		set => SetIcon(value);
+		moodletData = value;
+		
+		if (textureRect != null)
+			textureRect.Texture = moodletData.icon;
 	}
 	
-	public void SetIcon(Texture2D value)
-	{
-		if (textureRect != null)
-			textureRect.Texture = value;
-	}
+	public MoodletData GetMoodlet() => moodletData;
 
 	[Export] private TextureRect textureRect;
+	private MoodletData moodletData;
 
 	public override void _Ready()
 	{

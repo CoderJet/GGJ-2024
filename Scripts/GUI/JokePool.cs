@@ -25,27 +25,35 @@ public partial class JokePool : Control
 		
 		foreach (var item in moodlets.GetChildren())
 		{
-			Texture2D icon;
-			
-			// do
-			// {
-			// 	icon = moodletIcons.PickRandom();
-			// } while (usedMoodlets.Contains(icon));
-			//
-			// usedMoodlets.Add(icon);
-			//((MoodletEntity)item).SetIcon(icon);
-			
 			((Button)item).Pressed += () => OnPressed((Button)item);
 		}
 	}
 
 	private void OnPressed(Button button)
 	{
-		EmitSignal("OnMoodletSelected");
+		var data = ((MoodletEntity)button).GetMoodlet();
+		
+		EmitSignal("OnMoodletSelected", data);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+	}
+
+	public void GenerateMoodletEntities(Array<MoodletData> data)
+	{
+		foreach (var item in moodlets.GetChildren())
+		{
+			MoodletData moodlet;
+
+			 do
+			 {
+			 	moodlet = data.PickRandom();
+			 } while (usedMoodlets.Contains(moodlet));
+			
+			 usedMoodlets.Add(moodlet);
+			((MoodletEntity)item).SetMoodlet(moodlet);
+		}
 	}
 }
