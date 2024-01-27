@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_t146u")
-Name = "It was my nan!"
+Text = "It was my nan all along!"
 Type = 2
 Colour = 0
 ImpactFactor = 5

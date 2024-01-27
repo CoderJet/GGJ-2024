@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_cqk0d")
-Name = "Farming"
+Text = "Agriculture"
 Type = 0
 Colour = 2
 ImpactFactor = 1

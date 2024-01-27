@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_m8jtw")
-Name = "Just the other day..."
+Text = "Just the other day..."
 Type = 1
 Colour = 1
 ImpactFactor = 2
