@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b3apx04tmnyj1"]
+
+[ext_resource type="Texture2D" uid="uid://dtptsgrfhgve3" path="res://Assets/Sprites/emote_heart.png" id="1_ebnp7"]
+[ext_resource type="Script" path="res://Scripts/Resources/MoodletData.cs" id="2_uahuu"]
+
+[resource]
+script = ExtResource("2_uahuu")
+icon = ExtResource("1_ebnp7")
+Type = 2
+Colour = 0
+ImpactFactor = 1

@@ -43,8 +43,15 @@ public partial class MoodletPool : Control
 
 	public void GenerateMoodletEntities(Array<MoodletData> data)
 	{
+		usedMoodlets.Clear();
+		
 		foreach (var item in moodlets.GetChildren())
 		{
+			if (usedMoodlets.Count >= data.Count)
+			{
+				moodlets.RemoveChild(item);
+				continue;
+			}
 			MoodletData moodlet;
 
 			 do

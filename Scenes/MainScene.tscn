@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c257tlvys0301"]
+[gd_scene load_steps=11 format=3 uid="uid://c257tlvys0301"]
 
 [ext_resource type="Texture2D" uid="uid://c83a601sn24xu" path="res://Assets/Sprites/PlaceholderWall.png" id="1_dhdfg"]
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/StateMachines/PlayerStateMachine.cs" id="5_5xrfk"]
 [ext_resource type="Texture2D" uid="uid://tmhcb2ryreo5" path="res://Assets/Sprites/stage.png" id="6_7flgk"]
 [ext_resource type="PackedScene" uid="uid://d1si1q2to1jej" path="res://Scenes/GUI/MoodletPools.tscn" id="7_g0agk"]
+[ext_resource type="Texture2D" uid="uid://jmhi7g4x6us5" path="res://Assets/Sprites/microphone.png" id="7_t1cwr"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -16,14 +17,15 @@
 script = ExtResource("1_syii6")
 CrowdCollection = NodePath("../CrowdLayer")
 crowdManager = NodePath("../CrowdManager")
-moodletCount = null
+moodletCount = 3
+MoodletWeighting = Array[float]([45.0, 35.0, 20.0])
 
 [node name="CrowdManager" type="Node" parent="."]
 script = ExtResource("2_5p3uy")
 CrowdSpawner = ExtResource("3_orsmw")
 CrowdEntity = ExtResource("2_c8lvu")
 VenueSize = Vector2(4, 8)
-CrowdSize = null
+CrowdSize = 6
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("gameManager", "poolCollection")]
 script = ExtResource("5_5xrfk")
@@ -41,6 +43,10 @@ z_index = 12
 position = Vector2(480, 472)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_7flgk")
+
+[node name="Mic" type="Sprite2D" parent="Stage"]
+position = Vector2(0, -85)
+texture = ExtResource("7_t1cwr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 270)

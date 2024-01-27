@@ -30,8 +30,6 @@ public partial class CrowdManager : Node
 	// Called when the node enters the scene tree for the first time.res://Scripts/Managers/CrowdManager.cs
 	public override void _Ready()
 	{
-		GenerateSpawners();
-		GenerateCrowd();
 	}
 
 	public void GenerateSpawners()

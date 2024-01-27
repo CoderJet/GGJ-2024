@@ -3,33 +3,62 @@
 [ext_resource type="Script" path="res://Scripts/GUI/MoodletPoolCollection.cs" id="1_jpp2c"]
 [ext_resource type="PackedScene" uid="uid://diilkk26tajl5" path="res://Scenes/GUI/JokePool.tscn" id="2_dsp44"]
 
-[sub_resource type="Animation" id="Animation_41628"]
-resource_name = "TopicSetup"
+[sub_resource type="Animation" id="Animation_ekqnp"]
+resource_name = "Punchline"
 length = 0.25
-step = 0.05
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SetupTopics:position")
+tracks/0/path = NodePath("Punchlines:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2, 103), Vector2(396, -62)]
+"values": [Vector2(790, 214), Vector2(396, -62)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SetupTopics:rotation")
+tracks/1/path = NodePath("Punchlines:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.584685, 0.0]
+"values": [-0.584685, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_82omr"]
+resource_name = "PunchlineSetup"
+length = 0.25
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Punchlines:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(790, 214)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Punchlines:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.584685]
 }
 
 [sub_resource type="Animation" id="Animation_st5xl"]
@@ -136,62 +165,33 @@ tracks/1/keys = {
 "values": [0.584685, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_82omr"]
-resource_name = "PunchlineSetup"
+[sub_resource type="Animation" id="Animation_41628"]
+resource_name = "TopicSetup"
 length = 0.25
-step = 0.25
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Punchlines:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(790, 214)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Punchlines:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.584685]
-}
-
-[sub_resource type="Animation" id="Animation_ekqnp"]
-resource_name = "Punchline"
-length = 0.25
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Punchlines:position")
+tracks/0/path = NodePath("SetupTopics:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(790, 214), Vector2(396, -62)]
+"values": [Vector2(2, 103), Vector2(396, -62)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Punchlines:rotation")
+tracks/1/path = NodePath("SetupTopics:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.584685, 0.0]
+"values": [0.584685, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_my4xm"]

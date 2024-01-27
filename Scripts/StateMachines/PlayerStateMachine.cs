@@ -56,7 +56,7 @@ public partial class PlayerStateMachine : StateMachine
 				await ToSignal(player, "animation_finished");
 				break;
 			case SetupState:
-				//player.Play("Setup");
+				player.Play("Setup");
 				break;
 		}
 	}

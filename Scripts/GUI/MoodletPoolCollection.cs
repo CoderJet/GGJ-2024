@@ -24,10 +24,10 @@ public partial class MoodletPoolCollection : Control
 		((MoodletPool)PunchlineTopics).OnMoodletSelected += OnPunchlineTopicsMoodletSelected;
 		((MoodletPool)Punchline).OnMoodletSelected += OnPunchlineMoodletSelected;
 		
-		((MoodletPool)SetupTopics).GenerateMoodletEntities(MoodletBuilder.Instance.GenerateMoodletList());
-		((MoodletPool)Setup).GenerateMoodletEntities(MoodletBuilder.Instance.GenerateMoodletList());
-		((MoodletPool)PunchlineTopics).GenerateMoodletEntities(MoodletBuilder.Instance.GenerateMoodletList());
-		((MoodletPool)Punchline).GenerateMoodletEntities(MoodletBuilder.Instance.GenerateMoodletList());
+		((MoodletPool)SetupTopics).GenerateMoodletEntities(MoodletBuilder.Instance.GenerateMoodletList(JokeType.Left));
+		((MoodletPool)Setup).GenerateMoodletEntities(MoodletBuilder.Instance.GenerateMoodletList(JokeType.Middle));
+		((MoodletPool)PunchlineTopics).GenerateMoodletEntities(MoodletBuilder.Instance.GenerateMoodletList(JokeType.Left));
+		((MoodletPool)Punchline).GenerateMoodletEntities(MoodletBuilder.Instance.GenerateMoodletList(JokeType.Middle));
 	}
 
 	private void OnSetupTopicsMoodletSelected(MoodletData data)
