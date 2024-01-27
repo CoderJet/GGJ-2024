@@ -6,7 +6,7 @@ using Godot.Collections;
 using Utilities;
 using FileAccess = Godot.FileAccess;
 
-public class MoodletBuilder
+public partial class MoodletBuilder : Node
 {
 	public static MoodletBuilder Instance => instance ?? new MoodletBuilder();
 	private static MoodletBuilder instance;
