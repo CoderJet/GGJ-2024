@@ -9,8 +9,8 @@ public partial class CrowdManager : Node
 	[Export] public PackedScene CrowdSpawner;
 	[Export] public PackedScene CrowdEntity;
 
-	[Export] public Vector2 VenueSize = new(7, 3);
-	[Export] public int CrowdSize = 12;
+	[Export] public Vector2 VenueSize;
+	[Export] public int CrowdSize;
 
 	protected List<int> spawnerIndex;
     public List<Node2D> spawners;

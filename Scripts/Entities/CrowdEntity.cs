@@ -39,7 +39,7 @@ public partial class CrowdEntity : Node2D
         Head.Texture = Heads[rand.Next(0, Heads.Count())];
     }
 
-	public void GeneratePersonality()
+	public void GeneratePersonality(int topic, int setup, int punchline)
 	{
 		
 	}
