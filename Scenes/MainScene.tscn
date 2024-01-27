@@ -36,105 +36,6 @@ position = Vector2(480, 270)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="Topics" type="Control" parent="UILayer"]
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 161.0
-offset_top = -60.0
-offset_right = 161.0
-offset_bottom = -60.0
-grow_vertical = 0
-size_flags_horizontal = 4
-
-[node name="Background" type="Sprite2D" parent="UILayer/Topics"]
-texture = ExtResource("5_05auu")
-
-[node name="Label" type="Label" parent="UILayer/Topics"]
-layout_mode = 0
-offset_left = -25.0
-offset_top = -64.0
-offset_right = 25.0
-offset_bottom = -41.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Topics"
-horizontal_alignment = 1
-
-[node name="Topic" parent="UILayer/Topics" instance=ExtResource("4_kebe4")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -75.0
-offset_top = -30.0
-offset_right = 75.0
-offset_bottom = -4.0
-grow_horizontal = 2
-
-[node name="Topic2" parent="UILayer/Topics" instance=ExtResource("4_kebe4")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -75.0
-offset_right = 75.0
-grow_horizontal = 2
-
-[node name="Setups" type="Control" parent="UILayer"]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_top = 30.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="UILayer/Setups"]
-texture = ExtResource("5_05auu")
-
-[node name="Label" type="Label" parent="UILayer/Setups"]
-layout_mode = 0
-offset_left = -25.0
-offset_top = -64.0
-offset_right = 25.0
-offset_bottom = -41.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Setups
-"
-horizontal_alignment = 1
-
-[node name="Punchlines" type="Control" parent="UILayer"]
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -160.0
-offset_top = 30.0
-offset_right = -160.0
-offset_bottom = 30.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="UILayer/Punchlines"]
-texture = ExtResource("5_05auu")
-
-[node name="Label" type="Label" parent="UILayer/Punchlines"]
-layout_mode = 0
-offset_left = -45.0
-offset_top = -64.0
-offset_right = 45.0
-offset_bottom = -41.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Punchlines
-"
-horizontal_alignment = 1
-
 [node name="CrowdMoodBar" parent="UILayer" instance=ExtResource("4_27y2q")]
 anchors_preset = 5
 anchor_left = 0.5
@@ -143,3 +44,151 @@ anchor_bottom = 0.0
 offset_top = 10.0
 offset_bottom = 10.0
 grow_vertical = 1
+
+[node name="JokePools" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -100.0
+offset_right = 480.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LeftPool" type="Control" parent="UILayer/JokePools"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -90.0
+offset_right = 60.0
+offset_bottom = -90.0
+grow_vertical = 0
+size_flags_horizontal = 4
+
+[node name="Background" type="TextureRect" parent="UILayer/JokePools/LeftPool"]
+layout_mode = 0
+texture = ExtResource("5_05auu")
+
+[node name="Label" type="Label" parent="UILayer/JokePools/LeftPool/Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Topics"
+horizontal_alignment = 1
+
+[node name="Topic" parent="UILayer/JokePools/LeftPool" instance=ExtResource("4_kebe4")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 56.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="Topic2" parent="UILayer/JokePools/LeftPool" instance=ExtResource("4_kebe4")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="Topic3" parent="UILayer/JokePools/LeftPool" instance=ExtResource("4_kebe4")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 104.0
+offset_top = 40.0
+offset_right = 136.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="Topic4" parent="UILayer/JokePools/LeftPool" instance=ExtResource("4_kebe4")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 144.0
+offset_top = 40.0
+offset_right = 176.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="CenterPool" type="Control" parent="UILayer/JokePools"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -40.0
+offset_right = -100.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Background" type="TextureRect" parent="UILayer/JokePools/CenterPool"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 150.0
+texture = ExtResource("5_05auu")
+
+[node name="Label" type="Label" parent="UILayer/JokePools/CenterPool/Background"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 10.0
+offset_right = 145.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Setups
+"
+horizontal_alignment = 1
+
+[node name="RightPool" type="Control" parent="UILayer/JokePools"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -40.0
+offset_right = -260.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Background" type="TextureRect" parent="UILayer/JokePools/RightPool"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 150.0
+texture = ExtResource("5_05auu")
+
+[node name="Label2" type="Label" parent="UILayer/JokePools/RightPool/Background"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 10.0
+offset_right = 145.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Punchlines"
+horizontal_alignment = 1
