@@ -1,22 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://c257tlvys0301"]
+[gd_scene load_steps=9 format=3 uid="uid://c257tlvys0301"]
 
 [ext_resource type="Texture2D" uid="uid://c83a601sn24xu" path="res://Assets/Sprites/PlaceholderWall.png" id="1_dhdfg"]
+[ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
+[ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
+[ext_resource type="PackedScene" uid="uid://dgajtjao07evj" path="res://Scenes/Entities/crowd_entity.tscn" id="2_c8lvu"]
 [ext_resource type="Texture2D" uid="uid://8deysac84gct" path="res://Assets/Sprites/PlaceholderStage.png" id="4_1adfp"]
 [ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
 [ext_resource type="PackedScene" uid="uid://b1ehdkurt8pcq" path="res://Scenes/Entities/topic_entity.tscn" id="4_kebe4"]
 [ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/PlaceholderMoodletPool.png" id="5_05auu"]
-[ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
-[ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
 
-[node name="MainScene" type="Node2D" node_paths=PackedStringArray("CrowdCollection", "crowdManager")]
+[node name="MainScene" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("CrowdCollection", "crowdManager")]
 script = ExtResource("1_syii6")
-CrowdCollection = NodePath("CrowdCollection")
-crowdManager = NodePath("CrowdManager")
+CrowdCollection = NodePath("../CrowdLayer")
+crowdManager = NodePath("../CrowdManager")
 
 [node name="CrowdManager" type="Node" parent="."]
 script = ExtResource("2_5p3uy")
-
-[node name="CrowdCollection" type="Node" parent="."]
+CrowdEntity = ExtResource("2_c8lvu")
 
 [node name="Wall" type="Sprite2D" parent="."]
 position = Vector2(480, 270)

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 
 public partial class CrowdManager : Node
 {
-	public List<CrowdEntity> crowd;
+	[Export] public PackedScene CrowdEntity;
+	public List<Node2D> crowd;
 
 	public CrowdManager()
 	{
-		crowd = new List<CrowdEntity>();
+		crowd = new List<Node2D>();
 	}
 
 	[Signal] public delegate void OnCrowdPopulatedEventHandler();
@@ -23,11 +24,14 @@ public partial class CrowdManager : Node
 	{
 		for (var i = 0; i < value; i++)
 		{
-			var entity = new CrowdEntity(i);
+			var node = CrowdEntity.Instantiate<Node2D>();
 			
+			((CrowdEntity)node).TempValue = i + 1;
 			// TODO: Setup up the crowd internal data 'ere.
+
+			node.Position = new Vector2(GD.RandRange(-500, 500), GD.RandRange(50, 150));
 			
-			crowd.Add(entity);
+			crowd.Add(node);
 		}
 
 		EmitSignal("OnCrowdPopulated");

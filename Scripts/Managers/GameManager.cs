@@ -6,7 +6,6 @@ public partial class GameManager : Node
 {
 	[ExportCategory("Crowd Config")] 
 	[Export] public Node CrowdCollection;
-	[Export] public PackedScene crowdEntity;
 	[Export] public CrowdManager crowdManager;
 	[Export] public JokeBuilder jokeBuilder;
 	
@@ -20,12 +19,14 @@ public partial class GameManager : Node
 	{
 		foreach (var entity in crowdManager.crowd)
 		{
-			var data = crowdEntity.Instantiate();
-			crowdEntity.SetScript(entity);
-			
-			Logger.Info(((CrowdEntity)data).TempValue);
+			//var data = crowdEntity.Instantiate() as CrowdEntity;
+			//data.SetScript(entity);
 
-			CrowdCollection.AddChild(data);
+			//CrowdEntity t = data as CrowdEntity;
+			
+			Logger.Info(((CrowdEntity)entity).TempValue);
+
+			CrowdCollection.AddChild(entity);
 		}
 	}
 

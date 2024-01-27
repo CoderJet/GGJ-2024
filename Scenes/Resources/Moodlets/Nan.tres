@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dfwatuhbxuavk"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/JokeData.cs" id="1_2ul0m"]
+
+[resource]
+script = ExtResource("1_2ul0m")
+Type = 1
+Colour = 1
+ImpactFactor = 5

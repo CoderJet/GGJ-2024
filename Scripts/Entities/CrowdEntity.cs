@@ -1,12 +1,14 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class CrowdEntity : Node2D
 {
 	public int TempValue;
-	
-	
-	public CrowdEntity(int value)
+
+	public List<MoodletData> moodletData;
+
+	public void SetValue(int value)
 	{
 		TempValue = value;
 	}
@@ -19,5 +21,10 @@ public partial class CrowdEntity : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+	}
+
+	public void GeneratePersonality()
+	{
+		
 	}
 }
