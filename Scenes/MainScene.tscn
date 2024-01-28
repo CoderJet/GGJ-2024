@@ -4,13 +4,13 @@
 [ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
 [ext_resource type="PackedScene" uid="uid://dgajtjao07evj" path="res://Scenes/Entities/crowd_entity.tscn" id="2_c8lvu"]
 [ext_resource type="Script" path="res://Scripts/StateMachines/GameStateMachine.cs" id="2_iwhcs"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/spawner.tscn" id="3_orsmw"]
+[ext_resource type="PackedScene" uid="uid://cf27x6txyqcxv" path="res://Scenes/Entities/spawner.tscn" id="3_orsmw"]
 [ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
 [ext_resource type="Script" path="res://Scripts/StateMachines/PlayerStateMachine.cs" id="5_5xrfk"]
 [ext_resource type="Texture2D" uid="uid://tmhcb2ryreo5" path="res://Assets/Sprites/Room/stage.png" id="6_7flgk"]
 [ext_resource type="Texture2D" uid="uid://cxgjjhb76ucno" path="res://Assets/Sprites/Room/background.png" id="6_ci8tv"]
 [ext_resource type="PackedScene" uid="uid://7gjxwangx8re" path="res://Scenes/GUI/MoodletPools.tscn" id="7_g0agk"]
-[ext_resource type="AudioStream" uid="uid://go4w4a2i7icq" path="res://Assets/Audio/SFX/CricketTrack.tres" id="7_p0jpc"]
+[ext_resource type="AudioStream" uid="uid://c46eng57n4bl8" path="res://Assets/Audio/SFX/CricketTrack.tres" id="7_p0jpc"]
 [ext_resource type="Texture2D" uid="uid://bog4fvpa3ix4v" path="res://Assets/Sprites/Room/microphone.png" id="7_t1cwr"]
 
 [node name="MainScene" type="Node2D"]
@@ -25,8 +25,9 @@ sfxAudioPlayer = NodePath("../AudioStreamPlayer")
 moodletCount = 3
 MoodletWeighting = Array[float]([0.5, 0.25, 0.25])
 
-[node name="GameStateMachine" type="Node" parent="GameManager"]
+[node name="GameStateMachine" type="Node" parent="GameManager" node_paths=PackedStringArray("moodletPools")]
 script = ExtResource("2_iwhcs")
+moodletPools = NodePath("../../UILayer/JokePools")
 
 [node name="CrowdManager" type="Node" parent="."]
 script = ExtResource("2_5p3uy")
