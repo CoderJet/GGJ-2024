@@ -67,7 +67,7 @@ public partial class CrowdManager : Node
 
 				//YPOS
 				// SpawnSpace indent
-				float yPos = 160;					
+				float yPos = 140;	
 				// Scaling offset
 				yPos -= VenueSize.Y * 2;				
 				// Spacing offset

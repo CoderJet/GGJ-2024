@@ -1,9 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dgajtjao07evj"]
+[gd_scene load_steps=17 format=3 uid="uid://dgajtjao07evj"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/CrowdEntity.cs" id="1_w4lua"]
 [ext_resource type="Texture2D" uid="uid://ccx235nq4j8ym" path="res://Assets/Sprites/guest_body_1.png" id="2_cwo7u"]
-[ext_resource type="Texture2D" uid="uid://dignjbgjotd0h" path="res://Assets/Sprites/guest_body.png" id="2_h0wrm"]
-[ext_resource type="Texture2D" uid="uid://cqn8t6tmgh3hj" path="res://Assets/Sprites/PlaceholderHead.png" id="3_dfrbv"]
 [ext_resource type="Texture2D" uid="uid://cjblkotr4vlrd" path="res://Assets/Sprites/guest_face_1.png" id="3_m4iyx"]
 [ext_resource type="Texture2D" uid="uid://cgucrhx3t1s8t" path="res://Assets/Sprites/guest_body_2.png" id="3_so0mn"]
 [ext_resource type="Texture2D" uid="uid://dy05splwar8qd" path="res://Assets/Sprites/guest_face_2.png" id="4_hl7qj"]
@@ -12,20 +10,208 @@
 [ext_resource type="Texture2D" uid="uid://brauxrh050i2" path="res://Assets/Sprites/guest_face_3.png" id="5_3d3t0"]
 [ext_resource type="Texture2D" uid="uid://cu3jm5grynywc" path="res://Assets/Sprites/guest_body_5.png" id="6_2chas"]
 [ext_resource type="Texture2D" uid="uid://c5q44nv0ntvr" path="res://Assets/Sprites/guest_face_4.png" id="6_qs7wi"]
+[ext_resource type="Texture2D" uid="uid://co8fikrv0bs2r" path="res://Assets/Sprites/hand.png" id="13_7vyph"]
 
-[node name="CrowdEntity" type="Node2D" node_paths=PackedStringArray("Body", "Head")]
+[sub_resource type="Animation" id="Animation_65hun"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, -2), Vector2(4, 2), Vector2(1, -2), Vector2(-1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -59), Vector2(0, -60), Vector2(1, -60), Vector2(0.333333, -60), Vector2(0, -59)]
+}
+
+[sub_resource type="Animation" id="Animation_tkdyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -59)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/HandL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-35, 15)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D/HandR:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(35, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_grerk"]
+resource_name = "Laughing"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.4, 0.55, 0.7, 0.85, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -60), Vector2(0.5, -63), Vector2(1, -59), Vector2(1, -63), Vector2(0, -59), Vector2(-1, -63), Vector2(0, -59), Vector2(0, -60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/HandL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.55, 0.7, 0.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-15, 10), Vector2(-27, 12), Vector2(-10, 11), Vector2(-27, 12), Vector2(-10, 12), Vector2(-27, 12), Vector2(-10, 12), Vector2(-27, 12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/HandR:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.55, 0.7, 0.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(15, 10), Vector2(27, 12), Vector2(10, 11), Vector2(27, 12), Vector2(10, 12), Vector2(27, 12), Vector2(10, 12), Vector2(27, 12)]
+}
+
+[sub_resource type="Animation" id="Animation_ntpl8"]
+resource_name = "Angry"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -61), Vector2(-2, -61), Vector2(0, -61), Vector2(2, -61), Vector2(0, -61)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/HandL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-30, 15), Vector2(-25, 18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/HandR:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(30, 15), Vector2(25, 18)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ni58x"]
+_data = {
+"Angry": SubResource("Animation_ntpl8"),
+"Idle": SubResource("Animation_65hun"),
+"Laughing": SubResource("Animation_grerk"),
+"RESET": SubResource("Animation_tkdyn")
+}
+
+[node name="CrowdEntity" type="Node2D" node_paths=PackedStringArray("Body", "Head", "animPlayer")]
 script = ExtResource("1_w4lua")
 Body = NodePath("Body")
 Head = NodePath("Head")
 Bodies = Array[Texture2D]([ExtResource("2_cwo7u"), ExtResource("3_so0mn"), ExtResource("4_wd2yo"), ExtResource("5_1kxqg"), ExtResource("6_2chas")])
 Heads = Array[Texture2D]([ExtResource("3_m4iyx"), ExtResource("4_hl7qj"), ExtResource("5_3d3t0"), ExtResource("6_qs7wi")])
+animPlayer = NodePath("AnimationPlayer")
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(0, 5)
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_h0wrm")
+texture = ExtResource("2_cwo7u")
 
 [node name="Head" type="Sprite2D" parent="."]
 position = Vector2(0, -59)
 scale = Vector2(2, 2)
-texture = ExtResource("3_dfrbv")
+texture = ExtResource("3_m4iyx")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="HandL" type="Sprite2D" parent="Node2D"]
+position = Vector2(-35, 15)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_7vyph")
+
+[node name="HandR" type="Sprite2D" parent="Node2D"]
+position = Vector2(35, 15)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_7vyph")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ni58x")
+}
+autoplay = "Idle"

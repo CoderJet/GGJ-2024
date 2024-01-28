@@ -15,6 +15,8 @@ public partial class CrowdEntity : Node2D
 
     [Export] Texture2D[] Bodies;
     [Export] Texture2D[] Heads;
+
+	[Export] public AnimationPlayer animPlayer;
     
 	public void SetValue(int value)
 	{
@@ -23,9 +25,9 @@ public partial class CrowdEntity : Node2D
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
-	{
-		RandomizeBody();
-
+    {
+        Idle();
+        RandomizeBody();
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,5 +45,21 @@ public partial class CrowdEntity : Node2D
 	public void GeneratePersonality(Array<MoodletData> moodlets)
 	{
 		moodletData = moodlets;
+	}
+
+	public void Laugh()
+	{
+		//Check against moodlets.
+		bool funny = false;
+
+		if (funny)
+			animPlayer.CurrentAnimation = "Laughing";
+		else
+			animPlayer.CurrentAnimation = "Angry";
+	}
+
+	public void Idle()
+	{
+		animPlayer.CurrentAnimation = "Idle";
 	}
 }
