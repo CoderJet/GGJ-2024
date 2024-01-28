@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cglfoopq3gep2"
+path="res://.godot/imported/Street Band.mp3-261b62af7cc75d853caa927d03481f09.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/Street Band.mp3"
+dest_files=["res://.godot/imported/Street Band.mp3-261b62af7cc75d853caa927d03481f09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

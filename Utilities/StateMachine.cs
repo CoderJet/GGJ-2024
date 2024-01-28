@@ -1,4 +1,6 @@
 // Godot includes.
+
+using System.Threading.Tasks;
 using Godot;
 using Godot.Collections;
 
@@ -40,7 +42,7 @@ public abstract partial class StateMachine : Node
         Initialised = true;
     }
 
-    protected void SetState(string newState)
+    protected async void SetState(string newState)
     {
         previousState = State;
         State = newState;
@@ -48,9 +50,9 @@ public abstract partial class StateMachine : Node
         if (!StateChanged) return;
 
         if (!string.IsNullOrEmpty(previousState))
-            ExitState(previousState, newState);
+            await ExitState(previousState, newState);
         if (!string.IsNullOrEmpty(newState))
-            EnterState(newState, previousState);
+            await EnterState(newState, previousState);
     }
 
     protected void AddState(string newState)
@@ -61,9 +63,9 @@ public abstract partial class StateMachine : Node
 
     public abstract void Reset();
 
-    protected abstract void EnterState(string newState, string prevState);
+    protected abstract Task EnterState(string newState, string prevState);
 
-    protected abstract void ExitState(string prevState, string newState);
+    protected abstract Task ExitState(string prevState, string newState);
 
     protected abstract void StateLogic(float delta);
 

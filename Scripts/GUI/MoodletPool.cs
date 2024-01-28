@@ -19,6 +19,9 @@ public partial class MoodletPool : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		if (PoolTitle == null)
+			PoolTitle = GetNode<Label>("Background/Label");
+		
 		PoolTitle.Text = Title;
 
 		moodlets = GetNode<Node>("Moodlets");

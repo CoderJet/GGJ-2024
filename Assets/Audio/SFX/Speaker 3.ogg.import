@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ctgp8rxa3gd83"
+path="res://.godot/imported/Speaker 3.ogg-6f99322ea352259977d3a644a12c5e45.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Speaker 3.ogg"
+dest_files=["res://.godot/imported/Speaker 3.ogg-6f99322ea352259977d3a644a12c5e45.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 using Utilities;
 
 public partial class PlayerStateMachine : StateMachine
@@ -43,7 +44,7 @@ public partial class PlayerStateMachine : StateMachine
 			SetState(ThemeSetupState);
 	}
 
-	protected override async void EnterState(string newState, string prevState)
+	protected override async Task EnterState(string newState, string prevState)
 	{
 		if (!Initialised) return;
 		
@@ -52,37 +53,51 @@ public partial class PlayerStateMachine : StateMachine
 			case IdleState:
 				break;
 			case ThemeSetupState:
-				player.Play("TopicSetup");
-				await ToSignal(player, "animation_finished");
+				player.Play("ShowSetupTopic");
 				break;
 			case SetupState:
-				player.Play("Setup");
+				player.Play("ShowSetup");
+				break;
+			case ThemePunchlineState:
+				player.Play("ShowPunchlineTopic");
+				break;
+			case PunchlineState:
+				player.Play("ShowPunchline");
 				break;
 		}
+		
+		if (player.IsPlaying())
+			await ToSignal(player, "animation_finished");
 	}
 
-	protected override async void ExitState(string prevState, string newState)
+	protected override async Task ExitState(string prevState, string newState)
 	{
 		switch (prevState)
 		{
 			case IdleState:
 				break;
 			case ThemeSetupState:
-				player.PlayBackwards("TopicSetup");
-				await ToSignal(player, "animation_finished");
+				player.Play("PutAwaySetupTopic");
+				break;
+			case SetupState:
+				player.Play("PutAwaySetup");
+				break;
+			case ThemePunchlineState:
+				player.Play("PutAwayPunchlineTopic");
+				break;
+			case PunchlineState:
+				player.Play("PutAwayPunchline");
 				break;
 		}
+		
+		if (player.IsPlaying())
+			await ToSignal(player, "animation_finished");
 	}
 
 	protected override void StateLogic(float delta)
 	{
 		if (!Initialised) return;
 
-
-		if (((MoodletPoolCollection)poolCollection).SetupTopicMoodlet != null)
-		{
-			SetState(SetupState);
-		}
 		// Example:
 		// if (State != DeadState)
 		//	PlayerNode.HandleMovement();
@@ -90,6 +105,17 @@ public partial class PlayerStateMachine : StateMachine
 
 	protected override string GetTransition(float delta)
 	{
+		var moodletPool = poolCollection as MoodletPoolCollection;
+
+		if (moodletPool.PunchlineMoodlet != null)
+			return IdleState;
+		if (moodletPool.PunchlineTopicsMoodlet != null)
+			return PunchlineState;
+		if (moodletPool.SetupMoodlet != null)
+			return ThemePunchlineState;
+		if (moodletPool.SetupTopicMoodlet != null)
+			return SetupState;
+		
 		return State;
 	}
 }
