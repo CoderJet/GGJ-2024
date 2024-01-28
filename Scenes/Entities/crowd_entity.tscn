@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgajtjao07evj"]
+[gd_scene load_steps=23 format=3 uid="uid://dgajtjao07evj"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/CrowdEntity.cs" id="1_w4lua"]
-
 [ext_resource type="Texture2D" uid="uid://ccx235nq4j8ym" path="res://Assets/Sprites/Guests/guest_body_1.png" id="2_cwo7u"]
 [ext_resource type="Texture2D" uid="uid://cjblkotr4vlrd" path="res://Assets/Sprites/Guests/guest_face_1.png" id="3_m4iyx"]
 [ext_resource type="Texture2D" uid="uid://cgucrhx3t1s8t" path="res://Assets/Sprites/Guests/guest_body_2.png" id="3_so0mn"]
@@ -12,6 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://cu3jm5grynywc" path="res://Assets/Sprites/Guests/guest_body_5.png" id="6_2chas"]
 [ext_resource type="Texture2D" uid="uid://c5q44nv0ntvr" path="res://Assets/Sprites/Guests/guest_face_4.png" id="6_qs7wi"]
 [ext_resource type="Texture2D" uid="uid://bdn5jisaybkih" path="res://Assets/Sprites/Guests/hand_noborder.png" id="11_4vrqt"]
+[ext_resource type="Texture2D" uid="uid://dco27n0qhsap4" path="res://Assets/Sprites/Guests/guest_face_5.png" id="11_7qxun"]
+[ext_resource type="Texture2D" uid="uid://culq153ykhd6l" path="res://Assets/Sprites/Guests/guest_face_6.png" id="12_crw33"]
+[ext_resource type="Texture2D" uid="uid://c6ac570jghqak" path="res://Assets/Sprites/Guests/guest_face_7.png" id="13_ywome"]
+[ext_resource type="Texture2D" uid="uid://csiqog8x7w8j8" path="res://Assets/Sprites/Guests/guest_face_8.png" id="14_rmps0"]
+[ext_resource type="Texture2D" uid="uid://cb0bokig8gymd" path="res://Assets/Sprites/Guests/guest_face_9.png" id="15_hs80b"]
+[ext_resource type="Texture2D" uid="uid://cjui8hbp54me2" path="res://Assets/Sprites/Guests/guest_face_10.png" id="16_vacmx"]
 
 [sub_resource type="Animation" id="Animation_ntpl8"]
 resource_name = "Angry"
@@ -186,7 +191,7 @@ script = ExtResource("1_w4lua")
 Body = NodePath("Body")
 Head = NodePath("Head")
 Bodies = Array[Texture2D]([ExtResource("2_cwo7u"), ExtResource("3_so0mn"), ExtResource("4_wd2yo"), ExtResource("5_1kxqg"), ExtResource("6_2chas")])
-Heads = Array[Texture2D]([ExtResource("3_m4iyx"), ExtResource("4_hl7qj"), ExtResource("5_3d3t0"), ExtResource("6_qs7wi")])
+Heads = Array[Texture2D]([ExtResource("3_m4iyx"), ExtResource("4_hl7qj"), ExtResource("5_3d3t0"), ExtResource("6_qs7wi"), ExtResource("11_7qxun"), ExtResource("12_crw33"), ExtResource("13_ywome"), ExtResource("14_rmps0"), ExtResource("15_hs80b"), ExtResource("16_vacmx")])
 animPlayer = NodePath("AnimationPlayer")
 
 [node name="Body" type="Sprite2D" parent="."]

@@ -53,8 +53,7 @@ public partial class MoodletBuilder : Node
 		Array<MoodletData> data = new Array<MoodletData>();
 
         Array<MoodletData> sub_list = new Array<MoodletData>(moodletCollection.Where(x => x.Type == type));
-		Logger.Info("SUB LIST " + type + " SIZE: " + sub_list.Count);
-
+	
         for (var i = 0; i < qty; i++)
 		{
             MoodletData temp;

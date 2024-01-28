@@ -2,20 +2,21 @@
 
 [ext_resource type="Script" path="res://Scripts/GUI/MoodletPool.cs" id="1_8ghn6"]
 [ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/Placeholder/PlaceholderMoodletPool.png" id="1_nki4p"]
-[ext_resource type="Texture2D" uid="uid://cbt77y2s561l6" path="res://Assets/Sprites/Tractor.png" id="2_uos0m"]
-[ext_resource type="Texture2D" uid="uid://blm0gfjh7cjck" path="res://Assets/Sprites/Moodlets/emote_idea.png" id="4_l8rie"]
-[ext_resource type="Texture2D" uid="uid://dt76gm8jshwjt" path="res://Assets/Sprites/Moodlets/emote_cash.png" id="4_mipnu"]
-[ext_resource type="Texture2D" uid="uid://dtptsgrfhgve3" path="res://Assets/Sprites/Moodlets/emote_heart.png" id="5_jtfkg"]
+[ext_resource type="Texture2D" uid="uid://iwhycw0ah8mj" path="res://Assets/Sprites/Moodlets/tractor_sprite.png" id="2_q3agu"]
+[ext_resource type="Texture2D" uid="uid://yvormf846tny" path="res://Assets/Sprites/Moodlets/suitcase_sprite.png" id="3_v43at"]
+[ext_resource type="Texture2D" uid="uid://d3ddrx2t3qyea" path="res://Assets/Sprites/Moodlets/shirt_sprite.png" id="4_f0m6w"]
+[ext_resource type="Texture2D" uid="uid://d104y5e4iwd4o" path="res://Assets/Sprites/Moodlets/money_sprite.png" id="5_1amyw"]
 [ext_resource type="PackedScene" path="res://Scenes/Entities/MoodletEntity.tscn" id="7_85rcn"]
 
-[node name="LeftPool" type="Control" node_paths=PackedStringArray("PoolTitle")]
+[node name="LeftPool" type="Control" node_paths=PackedStringArray("PoolTitle", "moodlets")]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 script = ExtResource("1_8ghn6")
 Title = "Topic"
 PoolTitle = NodePath("Background/Label")
-moodletIcons = [ExtResource("2_uos0m"), ExtResource("4_mipnu"), ExtResource("4_l8rie"), ExtResource("5_jtfkg")]
+moodletIcons = Array[Texture2D]([ExtResource("2_q3agu"), ExtResource("3_v43at"), ExtResource("4_f0m6w"), ExtResource("5_1amyw")])
+moodlets = NodePath("Moodlets")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0

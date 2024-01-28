@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Resources/MoodletData.cs" id="2_gmh8s"]
 
 [resource]
+resource_name = "Pun"
 script = ExtResource("2_gmh8s")
 icon = ExtResource("1_ytquy")
 Type = 2

@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dd5iksn662dn0" path="res://Assets/Sprites/Emoji/happy_emoji.png" id="1_j1owh"]
 
 [resource]
+resource_name = "Happy"
 script = ExtResource("1_26bj6")
 icon = ExtResource("1_j1owh")
-Type = 0
+Type = 2
 Colour = 0
 ImpactFactor = 1
