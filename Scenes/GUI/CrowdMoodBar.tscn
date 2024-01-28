@@ -1,13 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjvd1kaixh1jy"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/CrowdMoodBar.cs" id="1_bx583"]
-<<<<<<< Updated upstream
-[ext_resource type="Texture2D" uid="uid://bansvi464jmdn" path="res://Assets/Sprites/angry_emoji.png" id="2_riehi"]
-[ext_resource type="Texture2D" uid="uid://bbofsvrd0tp6l" path="res://Assets/Sprites/happy_emoji.png" id="3_geyy7"]
-=======
 [ext_resource type="Texture2D" uid="uid://dq35awfmif1yh" path="res://Assets/Sprites/Emoji/angry_emoji.png" id="2_riehi"]
 [ext_resource type="Texture2D" uid="uid://dd5iksn662dn0" path="res://Assets/Sprites/Emoji/happy_emoji.png" id="3_geyy7"]
->>>>>>> Stashed changes
+
 
 [node name="CrowdMoodBar" type="Control" node_paths=PackedStringArray("moodBar")]
 layout_mode = 3
