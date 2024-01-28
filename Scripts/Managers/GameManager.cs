@@ -32,7 +32,9 @@ public partial class GameManager : Node
     {
 	    if (moodletPoolCollection == null)
 		    moodletPoolCollection = GetNode<MoodletPoolCollection>("UILayer/JokePools");
-	    
+
+		moodletPoolCollection.Generate(moodletCount);
+
 	    moodletPoolCollection.SetupMoodletSet += (topic, setup) =>
 	    {
 		    var result = crowdManager.Joke(new Array<MoodletData>() { topic, setup });
@@ -58,26 +60,54 @@ public partial class GameManager : Node
         crowdManager.OnSpawnersPopulated += OnOnSpawnersPopulated;
         crowdManager.OnCrowdPopulated += OnOnCrowdPopulated;
 
-        // Run moodlet builder to populate MoodletCount random moodlets for the set
-        topicSet = MoodletBuilder.Instance.GenerateMoodletList(JokeType.Left, moodletCount);
-        setupSet = MoodletBuilder.Instance.GenerateMoodletList(JokeType.Middle, moodletCount);
-        punchlineSet = MoodletBuilder.Instance.GenerateMoodletList(JokeType.Right, moodletCount);
-
         crowdManager.GenerateSpawners();
         crowdManager.GenerateCrowd();
 
         Logger.Info("Moodlet loop");
         // Split each moodlet 
+
+        //make a batched index list we can shuffle later
+        List<int> topicList = new List<int>();
+        for (int mw = 0; mw < MoodletWeighting.Count; mw++)
+		{
+			int crowdChunk = (int)(crowdManager.CrowdSize * MoodletWeighting[mw]);
+            for (int w = 0; w < crowdChunk;w++)
+			{
+				topicList.Add(mw);
+			}
+		}
+		while(topicList.Count < crowdManager.CrowdSize)
+		{
+			topicList.Add(0);
+		}
+
+		// clone topic indexes into setups and punchlines
+		List<int> setupList = new List<int>(topicList);
+        List<int> punchlineList = new List<int>(topicList);
+
         for (int i = 0; i < crowdManager.CrowdSize; i++)
         {
-            Logger.Info("Moodlet loop inside");
-            //cis - comedy is subjective
-            Random cis = new Random();
+			//cis - comedy is subjective
+            Random cis = new Random();			
 			Array<MoodletData> entity_moods = new Array<MoodletData>();
-			entity_moods.Add(topicSet[cis.Next(0, moodletCount)]);
-			entity_moods.Add(setupSet[cis.Next(0, moodletCount)]);
-			entity_moods.Add(punchlineSet[cis.Next(0, moodletCount)]);
 
+			// Pull back the set of moodlets we generated in the pool
+			int topic_index = cis.Next(0, topicList.Count);
+			entity_moods.Add(moodletPoolCollection.TopicList[topicList[topic_index]]);
+			topicList.RemoveAt(topic_index);
+
+            int setup_index = cis.Next(0, setupList.Count);
+            entity_moods.Add(moodletPoolCollection.SetupList[setupList[setup_index]]);
+            setupList.RemoveAt(setup_index);
+
+            int punchline_index = cis.Next(0, punchlineList.Count);
+            entity_moods.Add(moodletPoolCollection.PunchlineList[punchlineList[punchline_index]]);
+            punchlineList.RemoveAt(punchline_index);
+
+			Logger.Info("Crowd personality: "+
+				  "T" + entity_moods[0].ResourceName + 
+				", S" + entity_moods[1].ResourceName + 
+				", P" + entity_moods[2].ResourceName + ".");
 
             ((CrowdEntity)crowdManager.crowd[i]).GeneratePersonality(entity_moods);
 		}
@@ -85,7 +115,6 @@ public partial class GameManager : Node
 
     private void OnOnSpawnersPopulated()
     {
-        Logger.Info("populated spawners: " + crowdManager.spawners.Count);
         foreach (var entity in crowdManager.spawners)
         {
             //Logger.Info(((CrowdEntity)entity).TempValue);
@@ -102,9 +131,7 @@ public partial class GameManager : Node
 			//data.SetScript(entity);
 
 			//CrowdEntity t = data as CrowdEntity;
-			
-			Logger.Info(((CrowdEntity)entity).TempValue);
-
+						
 			//CrowdCollection.AddChild(entity);
 		}
 	}

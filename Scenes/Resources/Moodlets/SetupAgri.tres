@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Resources/MoodletData.cs" id="2_eoh3i"]
 
 [resource]
+resource_name = "Tractor"
 script = ExtResource("2_eoh3i")
 icon = ExtResource("1_fqh4g")
 Type = 1

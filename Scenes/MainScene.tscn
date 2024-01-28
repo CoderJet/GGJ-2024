@@ -23,7 +23,7 @@ moodletPoolCollection = NodePath("../UILayer/JokePools")
 crowdMoodBar = NodePath("../UILayer/CrowdMoodBar")
 sfxAudioPlayer = NodePath("../AudioStreamPlayer")
 moodletCount = 3
-MoodletWeighting = Array[float]([45.0, 35.0, 20.0])
+MoodletWeighting = Array[float]([0.5, 0.25, 0.25])
 
 [node name="GameStateMachine" type="Node" parent="GameManager"]
 script = ExtResource("2_iwhcs")

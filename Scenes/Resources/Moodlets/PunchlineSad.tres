@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cxbb574u1bdi0" path="res://Assets/Sprites/Emoji/unhappy_emoji.png" id="1_aiqq7"]
 
 [resource]
+resource_name = "Sad"
 script = ExtResource("1_7e20n")
 icon = ExtResource("1_aiqq7")
-Type = 0
+Type = 2
 Colour = 0
 ImpactFactor = 1

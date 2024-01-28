@@ -12,7 +12,7 @@ public partial class MoodletPool : Control
 	[Export] public Array<Texture2D> moodletIcons;
 
 	private List<MoodletData> usedMoodlets = new();
-	private Node moodlets;
+	[Export] public Node moodlets;
 
 	[Signal] public delegate void OnMoodletSelectedEventHandler(MoodletData data);
 	
@@ -24,7 +24,8 @@ public partial class MoodletPool : Control
 		
 		PoolTitle.Text = Title;
 
-		moodlets = GetNode<Node>("Moodlets");
+		if(moodlets == null)
+			moodlets = GetNode<Node>("Moodlets");
 		
 		foreach (var item in moodlets.GetChildren())
 		{
