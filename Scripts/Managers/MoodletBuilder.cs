@@ -39,6 +39,8 @@ public partial class MoodletBuilder : Node
 
 			if (FileAccess.FileExists(path))
 			{
+				path = path.TrimSuffix(".remap");
+				Logger.Info(path);
 				var t = ResourceLoader.Load<MoodletData>(path);
 
 				moodletCollection.Add(t);
