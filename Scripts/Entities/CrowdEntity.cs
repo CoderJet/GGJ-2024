@@ -47,15 +47,26 @@ public partial class CrowdEntity : Node2D
 		moodletData = moodlets;
 	}
 
-	public void Laugh()
+	public int Listen(Array<MoodletData> Joke)
 	{
 		//Check against moodlets.
-		bool funny = false;
+		int matches = moodletData.Where(x=>Joke.Contains(x)).Count();
 
-		if (funny)
-			animPlayer.CurrentAnimation = "Laughing";
-		else
-			animPlayer.CurrentAnimation = "Angry";
+		switch (matches)
+		{
+			case 2:
+				// Haha, great story Mark!
+                animPlayer.CurrentAnimation = "Laughing";
+				break;
+			case 0:
+				// I hate this joke!
+                animPlayer.CurrentAnimation = "Angry";
+				break;
+			case 1:
+				// No reaction
+				break;
+        }
+		return matches;
 	}
 
 	public void Idle()

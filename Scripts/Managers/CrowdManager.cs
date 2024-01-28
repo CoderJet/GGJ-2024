@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -108,5 +109,34 @@ public partial class CrowdManager : Node
 		}
 
 		EmitSignal("OnCrowdPopulated");
+	}
+
+	public int Joke(Array<MoodletData> joke)
+	{
+		// Initially reaction is neutral
+		int reaction = 0;
+
+		foreach(var node in crowd)
+		{			
+			switch(((CrowdEntity)node).Listen(joke))
+			{
+				case 0:
+                    // If they dislike the joke, shift reaction towards negative
+                    reaction--;
+					break;
+
+				case 1:
+					// If they're ambivalent, do nothing
+					break;
+
+				default:
+					// Otherwise, shift towards positive
+					reaction++;
+					break;
+			}
+
+        }
+
+		return reaction;
 	}
 }
