@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d2fyetja5r710"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/MoodletData.cs" id="1_lgwil"]
+
+[resource]
+script = ExtResource("1_lgwil")
+Type = 0
+Colour = 0
+ImpactFactor = 1

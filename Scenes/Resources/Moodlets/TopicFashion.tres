@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://6ke4q4cwk3ui"]
+
+[ext_resource type="Texture2D" uid="uid://d3ddrx2t3qyea" path="res://Assets/Sprites/Moodlets/shirt_sprite.png" id="1_41u6v"]
+[ext_resource type="Script" path="res://Scripts/Resources/MoodletData.cs" id="1_auxj0"]
+
+[resource]
+script = ExtResource("1_auxj0")
+icon = ExtResource("1_41u6v")
+Type = 0
+Colour = 0
+ImpactFactor = 1

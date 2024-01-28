@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cxx02lcmc8njf"]
+
+[ext_resource type="Texture2D" uid="uid://yvormf846tny" path="res://Assets/Sprites/Moodlets/suitcase_sprite.png" id="1_o17xa"]
+[ext_resource type="Script" path="res://Scripts/Resources/MoodletData.cs" id="1_yha1r"]
+
+[resource]
+script = ExtResource("1_yha1r")
+icon = ExtResource("1_o17xa")
+Type = 0
+Colour = 0
+ImpactFactor = 1
