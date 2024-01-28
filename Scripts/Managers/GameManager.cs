@@ -52,7 +52,6 @@ public partial class GameManager : Node
 
             ((CrowdEntity)crowdManager.crowd[i]).GeneratePersonality(entity_moods);
 		}
-
     }
 
     private void OnOnSpawnersPopulated()
