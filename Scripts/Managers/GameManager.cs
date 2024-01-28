@@ -31,15 +31,18 @@ public partial class GameManager : Node
     public override void _Ready()
     {
 	    if (moodletPoolCollection == null)
+	    {
+		    Logger.Info("HI!");
 		    moodletPoolCollection = GetNode<MoodletPoolCollection>("UILayer/JokePools");
+	    }
 
 		moodletPoolCollection.Generate(moodletCount);
 
-	    moodletPoolCollection.SetupMoodletSet += (topic, setup) =>
+	    moodletPoolCollection.SetupMoodletSet += moodlets => 
 	    {
-		    var result = crowdManager.Joke(new Array<MoodletData>() { topic, setup });
+		    var result = crowdManager.Joke(moodlets);
 		    ((CrowdMoodBar)crowdMoodBar).UpdateMoodBar(result);
-
+	    
 		    if (result == 0)
 		    {
 			    sfxAudioPlayer.Stream = ResourceLoader.Load<AudioStreamOggVorbis>("res://Assets/Audio/SFX/CricketTrack.tres");

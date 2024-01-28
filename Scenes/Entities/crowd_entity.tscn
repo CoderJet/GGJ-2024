@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dgajtjao07evj"]
+[gd_scene load_steps=29 format=3 uid="uid://dgajtjao07evj"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/CrowdEntity.cs" id="1_w4lua"]
 [ext_resource type="Texture2D" uid="uid://ccx235nq4j8ym" path="res://Assets/Sprites/Guests/guest_body_1.png" id="2_cwo7u"]
@@ -10,13 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://brauxrh050i2" path="res://Assets/Sprites/Guests/guest_face_3.png" id="5_3d3t0"]
 [ext_resource type="Texture2D" uid="uid://cu3jm5grynywc" path="res://Assets/Sprites/Guests/guest_body_5.png" id="6_2chas"]
 [ext_resource type="Texture2D" uid="uid://c5q44nv0ntvr" path="res://Assets/Sprites/Guests/guest_face_4.png" id="6_qs7wi"]
+[ext_resource type="Texture2D" uid="uid://7nrwpq1e0goy" path="res://Assets/Sprites/Guests/guest_body_6.png" id="7_okiq0"]
+[ext_resource type="Texture2D" uid="uid://6dgd0vsf0806" path="res://Assets/Sprites/Guests/guest_body_7.png" id="8_l75yf"]
+[ext_resource type="Texture2D" uid="uid://cccnqbbrl7hvd" path="res://Assets/Sprites/Guests/guest_body_8.png" id="9_p152w"]
+[ext_resource type="Texture2D" uid="uid://br0nga2b6pctx" path="res://Assets/Sprites/Guests/guest_body_9.png" id="10_rltpl"]
 [ext_resource type="Texture2D" uid="uid://bdn5jisaybkih" path="res://Assets/Sprites/Guests/hand_noborder.png" id="11_4vrqt"]
-[ext_resource type="Texture2D" uid="uid://dco27n0qhsap4" path="res://Assets/Sprites/Guests/guest_face_5.png" id="11_7qxun"]
-[ext_resource type="Texture2D" uid="uid://culq153ykhd6l" path="res://Assets/Sprites/Guests/guest_face_6.png" id="12_crw33"]
-[ext_resource type="Texture2D" uid="uid://c6ac570jghqak" path="res://Assets/Sprites/Guests/guest_face_7.png" id="13_ywome"]
-[ext_resource type="Texture2D" uid="uid://csiqog8x7w8j8" path="res://Assets/Sprites/Guests/guest_face_8.png" id="14_rmps0"]
-[ext_resource type="Texture2D" uid="uid://cb0bokig8gymd" path="res://Assets/Sprites/Guests/guest_face_9.png" id="15_hs80b"]
-[ext_resource type="Texture2D" uid="uid://cjui8hbp54me2" path="res://Assets/Sprites/Guests/guest_face_10.png" id="16_vacmx"]
+[ext_resource type="Texture2D" uid="uid://bgnf5snuxys0y" path="res://Assets/Sprites/Guests/guest_face_5.png" id="11_7qxun"]
+[ext_resource type="Texture2D" uid="uid://bty7w28jna5dj" path="res://Assets/Sprites/Guests/guest_body_10.png" id="11_17t6x"]
+[ext_resource type="Texture2D" uid="uid://druqw4mb07cys" path="res://Assets/Sprites/Guests/guest_face_6.png" id="12_crw33"]
+[ext_resource type="Texture2D" uid="uid://bsqgysckiqifg" path="res://Assets/Sprites/Guests/guest_body_11.png" id="12_gfuqt"]
+[ext_resource type="Texture2D" uid="uid://cahgjsm64s8fq" path="res://Assets/Sprites/Guests/guest_face_7.png" id="13_ywome"]
+[ext_resource type="Texture2D" uid="uid://drpjjykpg3y6m" path="res://Assets/Sprites/Guests/guest_face_8.png" id="14_rmps0"]
+[ext_resource type="Texture2D" uid="uid://mw7ptidkspma" path="res://Assets/Sprites/Guests/guest_face_9.png" id="15_hs80b"]
+[ext_resource type="Texture2D" uid="uid://cnoe6frxnheap" path="res://Assets/Sprites/Guests/guest_face_10.png" id="16_vacmx"]
 
 [sub_resource type="Animation" id="Animation_ntpl8"]
 resource_name = "Angry"
@@ -190,7 +196,7 @@ _data = {
 script = ExtResource("1_w4lua")
 Body = NodePath("Body")
 Head = NodePath("Head")
-Bodies = Array[Texture2D]([ExtResource("2_cwo7u"), ExtResource("3_so0mn"), ExtResource("4_wd2yo"), ExtResource("5_1kxqg"), ExtResource("6_2chas")])
+Bodies = Array[Texture2D]([ExtResource("2_cwo7u"), ExtResource("3_so0mn"), ExtResource("4_wd2yo"), ExtResource("5_1kxqg"), ExtResource("6_2chas"), ExtResource("7_okiq0"), ExtResource("8_l75yf"), ExtResource("9_p152w"), ExtResource("10_rltpl"), ExtResource("11_17t6x"), ExtResource("12_gfuqt")])
 Heads = Array[Texture2D]([ExtResource("3_m4iyx"), ExtResource("4_hl7qj"), ExtResource("5_3d3t0"), ExtResource("6_qs7wi"), ExtResource("11_7qxun"), ExtResource("12_crw33"), ExtResource("13_ywome"), ExtResource("14_rmps0"), ExtResource("15_hs80b"), ExtResource("16_vacmx")])
 animPlayer = NodePath("AnimationPlayer")
 

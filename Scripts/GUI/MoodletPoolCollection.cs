@@ -10,7 +10,7 @@ public partial class MoodletPoolCollection : Control
 	[Export] public Control Punchline;
 
 	[Signal]
-	public delegate void SetupMoodletSetEventHandler(MoodletData topic, MoodletData Setup);
+	public delegate void SetupMoodletSetEventHandler(Array<MoodletData> moodlets);
 	
 	public MoodletData SetupTopicMoodlet;
 	public MoodletData SetupMoodlet;
@@ -52,7 +52,7 @@ public partial class MoodletPoolCollection : Control
 	private void OnSetupMoodletSelected(MoodletData data)
 	{
 		SetupMoodlet = data;
-		EmitSignal("SetupMoodletSet", SetupTopicMoodlet, SetupMoodlet);
+		
 	}
 
 	private void OnPunchlineTopicsMoodletSelected(MoodletData data)
@@ -63,7 +63,7 @@ public partial class MoodletPoolCollection : Control
 	private void OnPunchlineMoodletSelected(MoodletData data)
 	{
 		PunchlineMoodlet = data;
-		EmitSignal("SetupMoodletSet", PunchlineTopicsMoodlet, PunchlineMoodlet);
+		EmitSignal("SetupMoodletSet", new Array<MoodletData>{SetupTopicMoodlet, SetupMoodlet, PunchlineTopicsMoodlet, PunchlineMoodlet});
 	}
 
 	public void Reset()
