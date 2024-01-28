@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dejkik75n0x5c"
-path="res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"
+uid="uid://b1xjgj1f4dbkg"
+path="res://.godot/imported/lightbulb_sprite.png-efa31a63dbca312b967403235ec83850.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/bomb_sprite.png"
-dest_files=["res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"]
+source_file="res://Assets/Sprites/Moodlets/lightbulb_sprite.png"
+dest_files=["res://.godot/imported/lightbulb_sprite.png-efa31a63dbca312b967403235ec83850.ctex"]
 
 [params]
 

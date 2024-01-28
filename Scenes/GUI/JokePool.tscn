@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://diilkk26tajl5"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/MoodletPool.cs" id="1_8ghn6"]
-[ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/PlaceholderMoodletPool.png" id="1_nki4p"]
+[ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/Placeholder/PlaceholderMoodletPool.png" id="1_nki4p"]
 [ext_resource type="Texture2D" uid="uid://cbt77y2s561l6" path="res://Assets/Sprites/Tractor.png" id="2_uos0m"]
-[ext_resource type="Texture2D" uid="uid://blm0gfjh7cjck" path="res://Assets/Sprites/emote_idea.png" id="4_l8rie"]
-[ext_resource type="Texture2D" uid="uid://dt76gm8jshwjt" path="res://Assets/Sprites/emote_cash.png" id="4_mipnu"]
-[ext_resource type="Texture2D" uid="uid://dtptsgrfhgve3" path="res://Assets/Sprites/emote_heart.png" id="5_jtfkg"]
-[ext_resource type="PackedScene" uid="uid://b1ehdkurt8pcq" path="res://Scenes/Entities/MoodletEntity.tscn" id="7_85rcn"]
+[ext_resource type="Texture2D" uid="uid://blm0gfjh7cjck" path="res://Assets/Sprites/Moodlets/emote_idea.png" id="4_l8rie"]
+[ext_resource type="Texture2D" uid="uid://dt76gm8jshwjt" path="res://Assets/Sprites/Moodlets/emote_cash.png" id="4_mipnu"]
+[ext_resource type="Texture2D" uid="uid://dtptsgrfhgve3" path="res://Assets/Sprites/Moodlets/emote_heart.png" id="5_jtfkg"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/MoodletEntity.tscn" id="7_85rcn"]
 
 [node name="LeftPool" type="Control" node_paths=PackedStringArray("PoolTitle")]
 layout_mode = 3

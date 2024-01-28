@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dejkik75n0x5c"
-path="res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"
+uid="uid://ca6ju73k11scb"
+path="res://.godot/imported/wine_sprite.png-878687832c0745504aa7680a6e4a1d8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/bomb_sprite.png"
-dest_files=["res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"]
+source_file="res://Assets/Sprites/Moodlets/wine_sprite.png"
+dest_files=["res://.godot/imported/wine_sprite.png-878687832c0745504aa7680a6e4a1d8d.ctex"]
 
 [params]
 

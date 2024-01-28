@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dejkik75n0x5c"
-path="res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"
+uid="uid://d104y5e4iwd4o"
+path="res://.godot/imported/money_sprite.png-db9b7dccc511d1228821055125a9cefe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/bomb_sprite.png"
-dest_files=["res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"]
+source_file="res://Assets/Sprites/Moodlets/money_sprite.png"
+dest_files=["res://.godot/imported/money_sprite.png-db9b7dccc511d1228821055125a9cefe.ctex"]
 
 [params]
 

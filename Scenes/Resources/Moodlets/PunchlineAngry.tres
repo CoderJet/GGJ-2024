@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b3apx04tmnyj1"]
+
+[ext_resource type="Texture2D" uid="uid://dq35awfmif1yh" path="res://Assets/Sprites/Emoji/angry_emoji.png" id="1_p8361"]
+[ext_resource type="Script" path="res://Scripts/Resources/MoodletData.cs" id="2_uahuu"]
+
+[resource]
+script = ExtResource("2_uahuu")
+icon = ExtResource("1_p8361")
+Type = 2
+Colour = 0
+ImpactFactor = 1

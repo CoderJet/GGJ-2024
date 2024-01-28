@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dejkik75n0x5c"
-path="res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"
+uid="uid://dm6lohenvu164"
+path="res://.godot/imported/heart_sprite.png-df65dfb7aeb600a1d716e2d23af068bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/bomb_sprite.png"
-dest_files=["res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"]
+source_file="res://Assets/Sprites/Moodlets/heart_sprite.png"
+dest_files=["res://.godot/imported/heart_sprite.png-df65dfb7aeb600a1d716e2d23af068bd.ctex"]
 
 [params]
 

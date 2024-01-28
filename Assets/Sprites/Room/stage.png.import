@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dejkik75n0x5c"
-path="res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"
+uid="uid://tmhcb2ryreo5"
+path="res://.godot/imported/stage.png-47400fcace7f025760c7e5e9a7b3e35a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/bomb_sprite.png"
-dest_files=["res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"]
+source_file="res://Assets/Sprites/Room/stage.png"
+dest_files=["res://.godot/imported/stage.png-47400fcace7f025760c7e5e9a7b3e35a.ctex"]
 
 [params]
 

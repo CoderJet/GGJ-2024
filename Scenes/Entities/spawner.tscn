@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf27x6txyqcxv"]
 
-[ext_resource type="Texture2D" uid="uid://brfj4jcexlvtj" path="res://Assets/Sprites/PlaceholderBody.png" id="1_yw0il"]
-[ext_resource type="Texture2D" uid="uid://dchgsk45qeppx" path="res://Assets/Sprites/stool.png" id="2_eq6vg"]
+[ext_resource type="Texture2D" uid="uid://brfj4jcexlvtj" path="res://Assets/Sprites/Placeholder/PlaceholderBody.png" id="1_yw0il"]
+[ext_resource type="Texture2D" uid="uid://dchgsk45qeppx" path="res://Assets/Sprites/Room/stool.png" id="2_eq6vg"]
 
 [node name="Spawner" type="Node2D"]
 metadata/Capacity = 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dejkik75n0x5c"
-path="res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"
+uid="uid://bgnf5snuxys0y"
+path="res://.godot/imported/guest_face_5.png-9859b3996a261f64fad4380600cb688c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/bomb_sprite.png"
-dest_files=["res://.godot/imported/bomb_sprite.png-0e7060c53275946c1e9809f8e33fbb81.ctex"]
+source_file="res://Assets/Sprites/Guests/guest_face_5.png"
+dest_files=["res://.godot/imported/guest_face_5.png-9859b3996a261f64fad4380600cb688c.ctex"]
 
 [params]
 
