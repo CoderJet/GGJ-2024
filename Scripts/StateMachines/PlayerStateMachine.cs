@@ -5,8 +5,8 @@ using Utilities;
 
 public partial class PlayerStateMachine : StateMachine
 {
-	[Export] public GameManager gameManager;
 	[Export] public Control poolCollection;
+	[Export] public Button microphone;
 
 	private AnimationPlayer player;
 	
@@ -39,9 +39,6 @@ public partial class PlayerStateMachine : StateMachine
 	public override void _Input(InputEvent @event)
 	{
 		if (!Initialised) return;
-		
-		if (Input.IsKeyPressed(Key.Space))
-			SetState(ThemeSetupState);
 	}
 
 	protected override async Task EnterState(string newState, string prevState)
@@ -51,6 +48,14 @@ public partial class PlayerStateMachine : StateMachine
 		switch (newState)
 		{
 			case IdleState:
+				player.Play("PutBackSetupTopic");
+				await ToSignal(player, "animation_finished");
+				player.Play("PutBackSetup");
+				await ToSignal(player, "animation_finished");
+				player.Play("PutBackPunchlineTopic");
+				await ToSignal(player, "animation_finished");
+				player.Play("PutBackPunchline");
+				((MoodletPoolCollection)poolCollection).Reset();
 				break;
 			case ThemeSetupState:
 				player.Play("ShowSetupTopic");
@@ -107,6 +112,11 @@ public partial class PlayerStateMachine : StateMachine
 	{
 		var moodletPool = poolCollection as MoodletPoolCollection;
 
+		if (microphone.ButtonPressed)
+		{
+			microphone.ButtonPressed = false;
+			return ThemeSetupState;
+		}
 		if (moodletPool.PunchlineMoodlet != null)
 			return IdleState;
 		if (moodletPool.PunchlineTopicsMoodlet != null)

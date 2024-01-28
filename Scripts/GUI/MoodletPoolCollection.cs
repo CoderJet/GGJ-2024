@@ -54,4 +54,12 @@ public partial class MoodletPoolCollection : Control
 		PunchlineMoodlet = data;
 		EmitSignal("SetupMoodletSet", PunchlineTopicsMoodlet, PunchlineMoodlet);
 	}
+
+	public void Reset()
+	{
+		SetupTopicMoodlet = null;
+		SetupMoodlet = null;
+		PunchlineTopicsMoodlet = null;
+		PunchlineMoodlet = null;
+	}
 }
