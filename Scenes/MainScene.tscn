@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
 [ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
 [ext_resource type="PackedScene" uid="uid://dgajtjao07evj" path="res://Scenes/Entities/crowd_entity.tscn" id="2_c8lvu"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/spawner.tscn" id="3_orsmw"]
+[ext_resource type="PackedScene" uid="uid://cf27x6txyqcxv" path="res://Scenes/Entities/spawner.tscn" id="3_orsmw"]
 [ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
 [ext_resource type="Script" path="res://Scripts/StateMachines/PlayerStateMachine.cs" id="5_5xrfk"]
 [ext_resource type="Texture2D" uid="uid://tmhcb2ryreo5" path="res://Assets/Sprites/stage.png" id="6_7flgk"]
 [ext_resource type="Texture2D" uid="uid://cxgjjhb76ucno" path="res://Assets/Sprites/background.png" id="6_ci8tv"]
 [ext_resource type="PackedScene" uid="uid://7gjxwangx8re" path="res://Scenes/GUI/MoodletPools.tscn" id="7_g0agk"]
-[ext_resource type="Texture2D" uid="uid://jmhi7g4x6us5" path="res://Assets/Sprites/microphone.png" id="7_t1cwr"]
+[ext_resource type="Texture2D" uid="uid://bog4fvpa3ix4v" path="res://Assets/Sprites/microphone.png" id="7_t1cwr"]
 
 [node name="MainScene" type="Node2D"]
 
