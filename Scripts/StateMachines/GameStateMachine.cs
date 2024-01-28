@@ -5,38 +5,36 @@ using Utilities;
 
 public partial class GameStateMachine : StateMachine
 {
+	private static string IdleState = "IDLE";
+
+	[Export] public MoodletPoolCollection moodletPools;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		moodletPools = GetParent().GetParent().GetNode<MoodletPoolCollection>("UILayer/JokePools");
 	}
 
 	public override void Reset()
 	{
-		throw new NotImplementedException();
 	}
 
-	protected override Task EnterState(string newState, string prevState)
+	protected override async Task EnterState(string newState, string prevState)
 	{
-		throw new NotImplementedException();
+		if (!Initialised) return;
+		
 	}
 
-	protected override Task ExitState(string prevState, string newState)
+	protected override async Task ExitState(string prevState, string newState)
 	{
-		throw new NotImplementedException();
 	}
 
 	protected override void StateLogic(float delta)
 	{
-		throw new NotImplementedException();
 	}
 
 	protected override string GetTransition(float delta)
 	{
-		throw new NotImplementedException();
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+		return State;
 	}
 }

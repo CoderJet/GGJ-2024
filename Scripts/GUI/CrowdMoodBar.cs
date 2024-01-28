@@ -17,8 +17,8 @@ public partial class CrowdMoodBar : Control
 
 	public void UpdateMoodBar(int value)
 	{
-		var currentValue = (int)moodBar.Value;
-		
-		
+		var currentValue = (int)moodBar.Value + value;
+
+		moodBar.Value = currentValue;
 	}
 }

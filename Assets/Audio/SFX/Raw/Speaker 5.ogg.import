@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://db8vymvjcmx50"
+path="res://.godot/imported/Speaker 5.ogg-3706a4c587a167f60c7acad4fc7fb87b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Raw/Speaker 5.ogg"
+dest_files=["res://.godot/imported/Speaker 5.ogg-3706a4c587a167f60c7acad4fc7fb87b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

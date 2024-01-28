@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://brauxrh050i2" path="res://Assets/Sprites/guest_face_3.png" id="5_3d3t0"]
 [ext_resource type="Texture2D" uid="uid://cu3jm5grynywc" path="res://Assets/Sprites/guest_body_5.png" id="6_2chas"]
 [ext_resource type="Texture2D" uid="uid://c5q44nv0ntvr" path="res://Assets/Sprites/guest_face_4.png" id="6_qs7wi"]
-[ext_resource type="Texture2D" uid="uid://bdn5jisaybkih" path="res://Assets/Sprites/hand_noborder.png" id="11_4vrqt"]
+[ext_resource type="Texture2D" uid="uid://by5j6w223csjf" path="res://Assets/Sprites/hand_noborder.png" id="11_4vrqt"]
 
 [sub_resource type="Animation" id="Animation_ntpl8"]
 resource_name = "Angry"

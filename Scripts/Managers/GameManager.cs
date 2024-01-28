@@ -3,6 +3,7 @@ using Godot.Collections;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Audio;
 using Utilities;
 
 public partial class GameManager : Node
@@ -10,6 +11,9 @@ public partial class GameManager : Node
 	[ExportCategory("Crowd Config")] 
 	[Export] public Node CrowdCollection;
 	[Export] public CrowdManager crowdManager;
+	[Export] public MoodletPoolCollection moodletPoolCollection;
+	[Export] public Control crowdMoodBar;
+	[Export] public AudioStreamPlayer sfxAudioPlayer;
 
 	#region moodlet_settings
 	// Applies to all pools
@@ -26,6 +30,31 @@ public partial class GameManager : Node
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+	    if (moodletPoolCollection == null)
+		    moodletPoolCollection = GetNode<MoodletPoolCollection>("UILayer/JokePools");
+	    
+	    moodletPoolCollection.SetupMoodletSet += (topic, setup) =>
+	    {
+		    var result = crowdManager.Joke(new Array<MoodletData>() { topic, setup });
+		    ((CrowdMoodBar)crowdMoodBar).UpdateMoodBar(result);
+
+		    if (result == 0)
+		    {
+			    sfxAudioPlayer.Stream = ResourceLoader.Load<AudioStreamOggVorbis>("res://Assets/Audio/SFX/CricketTrack.tres");
+			    sfxAudioPlayer.Play();
+		    }
+		    else if (result > 0)
+		    {
+			    sfxAudioPlayer.Stream = ResourceLoader.Load<AudioStreamWav>("res://Assets/Audio/SFX/LaughTrack.tres");
+			    sfxAudioPlayer.Play();
+		    }
+		    else
+		    {
+			    sfxAudioPlayer.Stream = ResourceLoader.Load<AudioStreamMP3>("res://Assets/Audio/SFX/BooTrack.tres");
+			    sfxAudioPlayer.Play();
+		    }
+	    };
+	    
         crowdManager.OnSpawnersPopulated += OnOnSpawnersPopulated;
         crowdManager.OnCrowdPopulated += OnOnCrowdPopulated;
 

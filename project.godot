@@ -21,6 +21,10 @@ run/main_scene="res://Scenes/MainScene.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Assets/Audio/AudioBusLayout.tres"
+
 [autoload]
 
 MoodletBuilder="*res://Scripts/Managers/MoodletBuilder.cs"
