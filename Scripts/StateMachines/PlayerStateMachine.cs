@@ -13,7 +13,7 @@ public partial class PlayerStateMachine : StateMachine
 	private const string IdleState = "IDLE";
 	private const string ThemeSetupState = "SETUP_THEME";
 	private const string SetupState = "SETUP";
-	private const string ThemePunchlineState = "PUNHLINE_THEME";
+	private const string ThemePunchlineState = "PUNCHLINE_THEME";
 	private const string PunchlineState = "PUNCHLINE";
 	
 	public override void _Ready()
