@@ -3,46 +3,36 @@ using Godot.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 public partial class CrowdEntity : Node2D
 {
-	public int TempValue;
- 
-	public Array<MoodletData> moodletData;
- 
-    [Export] Sprite2D Body;
-    [Export] Sprite2D Head;
- 
-    [Export] Texture2D[] Bodies;
-    [Export] Texture2D[] Heads;
- 
+	[ExportCategory("Node References")]
+    [Export] private Sprite2D Body;
+    [Export] private Sprite2D Head;
 	[Export] public AnimationPlayer animPlayer;
-    
-	public void SetValue(int value)
-	{
-		TempValue = value;
-	}	
+    [ExportCategory("Dynamic Asset Collections")]
+    [Export] private Texture2D[] Bodies;
+    [Export] private Texture2D[] Heads;
+ 
+	private Array<MoodletData> moodletData;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
     {
-        Idle();
+        PlayIdleAnimation();
         RandomizeBody();
     }
- 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
- 
-	public void RandomizeBody()
+
+	private void RandomizeBody()
     {
-        Random rand = new Random();
-        Body.Texture = Bodies[rand.Next(0, Bodies.Count())];
-        Head.Texture = Heads[rand.Next(0, Heads.Count())];
+        var rand = new Random();
+        Body.Texture = Bodies[rand.Next(0, Bodies.Length)];
+        Head.Texture = Heads[rand.Next(0, Heads.Length)];
     }
  
-	public void GeneratePersonality(Array<MoodletData> moodlets)
+	public void SetPersonality(Array<MoodletData> moodlets)
 	{
 		moodletData = moodlets;
 	}
@@ -50,17 +40,17 @@ public partial class CrowdEntity : Node2D
 	public int Listen(Array<MoodletData> Joke)
 	{
 		//Check against moodlets.
-		int matches = moodletData.Where(x=>Joke.Contains(x)).Count();
+		var matches = moodletData.Count(Joke.Contains);
  
 		switch (matches)
 		{
 			case 2:
 				// Haha, great story Mark!
-                animPlayer.CurrentAnimation = "Laughing";
+				PlayLaughingAnimation();
 				break;
 			case 0:
 				// I hate this joke!
-                animPlayer.CurrentAnimation = "Angry";
+				PlayAngryAnimation();
 				break;
 			case 1:
 				// No reaction
@@ -69,8 +59,21 @@ public partial class CrowdEntity : Node2D
 		return matches;
 	}
  
-	public void Idle()
+	public void PlayIdleAnimation()
 	{
-		animPlayer.CurrentAnimation = "Idle";
+		animPlayer.Play("Idle");
+	}
+
+	public void PlayLaughingAnimation()
+	{
+		animPlayer.Play("Laughing");
+		//await ToSignal(animPlayer, "animation_finished");
+		
+	}
+
+	public void PlayAngryAnimation()
+	{
+		animPlayer.Play("Angry");
+		//await ToSignal(animPlayer, "animation_finished");
 	}
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dgajtjao07evj"]
+[gd_scene load_steps=30 format=3 uid="uid://dgajtjao07evj"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/CrowdEntity.cs" id="1_w4lua"]
 [ext_resource type="Texture2D" uid="uid://ccx235nq4j8ym" path="res://Assets/Sprites/Guests/guest_body_1.png" id="2_cwo7u"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://drpjjykpg3y6m" path="res://Assets/Sprites/Guests/guest_face_8.png" id="14_rmps0"]
 [ext_resource type="Texture2D" uid="uid://mw7ptidkspma" path="res://Assets/Sprites/Guests/guest_face_9.png" id="15_hs80b"]
 [ext_resource type="Texture2D" uid="uid://cnoe6frxnheap" path="res://Assets/Sprites/Guests/guest_face_10.png" id="16_vacmx"]
+[ext_resource type="Script" path="res://Scripts/StateMachines/CrowdStateMachine.cs" id="23_8oo6j"]
 
 [sub_resource type="Animation" id="Animation_ntpl8"]
 resource_name = "Angry"
@@ -196,9 +197,18 @@ _data = {
 script = ExtResource("1_w4lua")
 Body = NodePath("Body")
 Head = NodePath("Head")
+animPlayer = NodePath("AnimationPlayer")
 Bodies = Array[Texture2D]([ExtResource("2_cwo7u"), ExtResource("3_so0mn"), ExtResource("4_wd2yo"), ExtResource("5_1kxqg"), ExtResource("6_2chas"), ExtResource("7_okiq0"), ExtResource("8_l75yf"), ExtResource("9_p152w"), ExtResource("10_rltpl"), ExtResource("11_17t6x"), ExtResource("12_gfuqt")])
 Heads = Array[Texture2D]([ExtResource("3_m4iyx"), ExtResource("4_hl7qj"), ExtResource("5_3d3t0"), ExtResource("6_qs7wi"), ExtResource("11_7qxun"), ExtResource("12_crw33"), ExtResource("13_ywome"), ExtResource("14_rmps0"), ExtResource("15_hs80b"), ExtResource("16_vacmx")])
-animPlayer = NodePath("AnimationPlayer")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("23_8oo6j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ni58x")
+}
+autoplay = "Idle"
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(0, 5)
@@ -221,9 +231,3 @@ texture = ExtResource("11_4vrqt")
 position = Vector2(35, 15)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_4vrqt")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ni58x")
-}
-autoplay = "Idle"

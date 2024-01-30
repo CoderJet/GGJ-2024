@@ -22,7 +22,6 @@ public partial class GameStateMachine : StateMachine
 	protected override async Task EnterState(string newState, string prevState)
 	{
 		if (!Initialised) return;
-		
 	}
 	
 	protected override async Task ExitState(string prevState, string newState)

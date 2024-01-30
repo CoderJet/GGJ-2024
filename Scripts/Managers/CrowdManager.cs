@@ -96,9 +96,7 @@ public partial class CrowdManager : Node
 		{	
 			var node = CrowdEntity.Instantiate<Node2D>();
 			
-			((CrowdEntity)node).TempValue = i + 1;
 			// TODO: Setup up the crowd internal data 'ere.
- 
 			node.ZIndex = 1;
 			node.Position = Vector2.Zero;//new Vector2(GD.RandRange(-500, 500), GD.RandRange(50, 150));
  

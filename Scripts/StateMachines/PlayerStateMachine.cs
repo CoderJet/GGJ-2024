@@ -55,7 +55,7 @@ public partial class PlayerStateMachine : StateMachine
 				player.Play("PutBackPunchlineTopic");
 				await ToSignal(player, "animation_finished");
 				player.Play("PutBackPunchline");
-				//((MoodletPoolCollection)poolCollection).Reset();
+				((MoodletPoolCollection)poolCollection).Reset();
 				break;
 			case ThemeSetupState:
 				player.Play("ShowSetupTopic");
@@ -110,22 +110,22 @@ public partial class PlayerStateMachine : StateMachine
 	
 	protected override string GetTransition(float delta)
 	{
-		var moodletPool = poolCollection as MoodletPoolCollection;
-		
 		if (microphone.ButtonPressed)
 		{
 			microphone.ButtonPressed = false;
 			return ThemeSetupState;
 		}
+
+		if (poolCollection is not MoodletPoolCollection moodletPool) 
+			return State;
+		
 		if (moodletPool.PunchlineMoodlet != null)
 			return IdleState;
 		if (moodletPool.PunchlineTopicsMoodlet != null)
 			return PunchlineState;
 		if (moodletPool.SetupMoodlet != null)
 			return ThemePunchlineState;
-		if (moodletPool.SetupTopicMoodlet != null)
-			return SetupState;
 		
-		return State;
+		return moodletPool.SetupTopicMoodlet != null ? SetupState : State;
 	}
 }

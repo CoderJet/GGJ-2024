@@ -112,7 +112,7 @@ public partial class GameManager : Node
 				", S" + entity_moods[1].ResourceName + 
 				", P" + entity_moods[2].ResourceName + ".");
  
-            ((CrowdEntity)crowdManager.crowd[i]).GeneratePersonality(entity_moods);
+            ((CrowdEntity)crowdManager.crowd[i]).SetPersonality(entity_moods);
 		}
     }
  
