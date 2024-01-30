@@ -39,6 +39,9 @@ public static class AudioControl
 			audioData.Data.Add(Enum.GetName(typeof(AudioBus), key), 0);
 		Load();
 		LoadBusVolumes();
+		
+		
+		
 	}
 	
 	private static double GetVolumeDb(AudioBus bus)

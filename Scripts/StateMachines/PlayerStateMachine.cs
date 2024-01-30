@@ -7,7 +7,7 @@ public partial class PlayerStateMachine : StateMachine
 {
 	[Export] public Control poolCollection;
 	[Export] public Button microphone;
-
+	
 	private AnimationPlayer player;
 	
 	private const string IdleState = "IDLE";
@@ -23,24 +23,24 @@ public partial class PlayerStateMachine : StateMachine
 		AddState(SetupState);
 		AddState(ThemePunchlineState);
 		AddState(PunchlineState);
-
+	
 		SetState(IdleState);
-
+	
 		player = poolCollection.GetNode<AnimationPlayer>("AnimationPlayer");
 		
 		base._Ready();
 	}
-
+	
 	public override void Reset()
 	{
 		
 	}
-
+	
 	public override void _Input(InputEvent @event)
 	{
 		if (!Initialised) return;
 	}
-
+	
 	protected override async Task EnterState(string newState, string prevState)
 	{
 		if (!Initialised) return;
@@ -55,7 +55,7 @@ public partial class PlayerStateMachine : StateMachine
 				player.Play("PutBackPunchlineTopic");
 				await ToSignal(player, "animation_finished");
 				player.Play("PutBackPunchline");
-				((MoodletPoolCollection)poolCollection).Reset();
+				//((MoodletPoolCollection)poolCollection).Reset();
 				break;
 			case ThemeSetupState:
 				player.Play("ShowSetupTopic");
@@ -74,7 +74,7 @@ public partial class PlayerStateMachine : StateMachine
 		if (player.IsPlaying())
 			await ToSignal(player, "animation_finished");
 	}
-
+	
 	protected override async Task ExitState(string prevState, string newState)
 	{
 		switch (prevState)
@@ -98,20 +98,20 @@ public partial class PlayerStateMachine : StateMachine
 		if (player.IsPlaying())
 			await ToSignal(player, "animation_finished");
 	}
-
+	
 	protected override void StateLogic(float delta)
 	{
 		if (!Initialised) return;
-
+	
 		// Example:
 		// if (State != DeadState)
 		//	PlayerNode.HandleMovement();
 	}
-
+	
 	protected override string GetTransition(float delta)
 	{
 		var moodletPool = poolCollection as MoodletPoolCollection;
-
+		
 		if (microphone.ButtonPressed)
 		{
 			microphone.ButtonPressed = false;

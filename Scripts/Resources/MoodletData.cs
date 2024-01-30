@@ -4,11 +4,9 @@ using Godot;
 //      Resource Registry
 using MonoCustomResourceRegistry;
 
-[Tool]
 [RegisteredType(nameof(MoodletData), "", nameof(Resource))]
 public partial class MoodletData : Resource
 {
-	
 	[ExportCategory("Joke Data")] 
 	[Export] public Texture2D icon;
 	[Export] public JokeType Type;

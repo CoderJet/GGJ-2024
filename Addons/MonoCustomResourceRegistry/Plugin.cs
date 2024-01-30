@@ -20,7 +20,7 @@ namespace MonoCustomResourceRegistry
 		// and we can't be sure how long that is. I guess we have to leave refreshing to the user for now.
 		// There isn't any automation we can do to fix that.
 		// private Button MonoBuildButton => GetNode<Button>("/root/EditorNode/@@580/@@581/@@589/@@590/Button");
-		private readonly List<string> customTypes = new List<string>();
+		private readonly List<string> customTypes = new();
 		private Button? refreshButton;
 
 		public override void _EnterTree()
@@ -29,7 +29,7 @@ namespace MonoCustomResourceRegistry
 			refreshButton.Text = "CCR";
 
 			AddControlToContainer(CustomControlContainer.Toolbar, refreshButton);
-			refreshButton.Icon = GetEditorInterface().GetBaseControl().GetThemeIcon("Reload", "EditorIcons");
+			refreshButton.Icon = EditorInterface.Singleton.GetBaseControl().GetThemeIcon("Reload", "EditorIcons");
 			refreshButton.Pressed += OnRefreshPressed;
 
 			Settings.Init();
@@ -83,7 +83,7 @@ namespace MonoCustomResourceRegistry
 					if (rawIcon != null)
 					{
 						Image image = rawIcon.GetImage();
-						int length = (int)Mathf.Round(16 * GetEditorInterface().GetEditorScale());
+						int length = (int)Mathf.Round(16 * EditorInterface.Singleton.GetEditorScale());
 						image.Resize(length, length);
 						icon = ImageTexture.CreateFromImage(image);
 					}

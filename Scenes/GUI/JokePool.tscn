@@ -1,21 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://diilkk26tajl5"]
+[gd_scene load_steps=4 format=3 uid="uid://diilkk26tajl5"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/MoodletPool.cs" id="1_8ghn6"]
 [ext_resource type="Texture2D" uid="uid://dtpt7qiyq1m1p" path="res://Assets/Sprites/Placeholder/PlaceholderMoodletPool.png" id="1_nki4p"]
-[ext_resource type="Texture2D" uid="uid://iwhycw0ah8mj" path="res://Assets/Sprites/Moodlets/tractor_sprite.png" id="2_q3agu"]
-[ext_resource type="Texture2D" uid="uid://yvormf846tny" path="res://Assets/Sprites/Moodlets/suitcase_sprite.png" id="3_v43at"]
-[ext_resource type="Texture2D" uid="uid://d3ddrx2t3qyea" path="res://Assets/Sprites/Moodlets/shirt_sprite.png" id="4_f0m6w"]
-[ext_resource type="Texture2D" uid="uid://d104y5e4iwd4o" path="res://Assets/Sprites/Moodlets/money_sprite.png" id="5_1amyw"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/MoodletEntity.tscn" id="7_85rcn"]
+[ext_resource type="PackedScene" uid="uid://b1ehdkurt8pcq" path="res://Scenes/Entities/MoodletEntity.tscn" id="7_85rcn"]
 
 [node name="LeftPool" type="Control" node_paths=PackedStringArray("PoolTitle", "moodlets")]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 script = ExtResource("1_8ghn6")
-Title = "Topic"
 PoolTitle = NodePath("Background/Label")
-moodletIcons = Array[Texture2D]([ExtResource("2_q3agu"), ExtResource("3_v43at"), ExtResource("4_f0m6w"), ExtResource("5_1amyw")])
 moodlets = NodePath("Moodlets")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -33,7 +27,6 @@ offset_right = 25.0
 offset_bottom = 33.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Topic"
 horizontal_alignment = 1
 
 [node name="Moodlets" type="Control" parent="."]

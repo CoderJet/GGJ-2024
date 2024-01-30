@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://c257tlvys0301"]
+[gd_scene load_steps=12 format=3 uid="uid://c257tlvys0301"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
 [ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
-[ext_resource type="PackedScene" uid="uid://dgajtjao07evj" path="res://Scenes/Entities/crowd_entity.tscn" id="2_c8lvu"]
-[ext_resource type="Script" path="res://Scripts/StateMachines/GameStateMachine.cs" id="2_iwhcs"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/spawner.tscn" id="3_orsmw"]
 [ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/spawner.tscn" id="4_xmcao"]
 [ext_resource type="Script" path="res://Scripts/StateMachines/PlayerStateMachine.cs" id="5_5xrfk"]
+[ext_resource type="PackedScene" uid="uid://dgajtjao07evj" path="res://Scenes/Entities/crowd_entity.tscn" id="5_fafhu"]
 [ext_resource type="Texture2D" uid="uid://tmhcb2ryreo5" path="res://Assets/Sprites/Room/stage.png" id="6_7flgk"]
 [ext_resource type="Texture2D" uid="uid://cxgjjhb76ucno" path="res://Assets/Sprites/Room/background.png" id="6_ci8tv"]
 [ext_resource type="PackedScene" uid="uid://7gjxwangx8re" path="res://Scenes/GUI/MoodletPools.tscn" id="7_g0agk"]
@@ -22,18 +21,14 @@ crowdManager = NodePath("../CrowdManager")
 moodletPoolCollection = NodePath("../UILayer/JokePools")
 crowdMoodBar = NodePath("../UILayer/CrowdMoodBar")
 sfxAudioPlayer = NodePath("../AudioStreamPlayer")
-moodletCount = 3
-MoodletWeighting = Array[float]([0.5, 0.25, 0.25])
-
-[node name="GameStateMachine" type="Node" parent="GameManager" node_paths=PackedStringArray("moodletPools")]
-script = ExtResource("2_iwhcs")
-moodletPools = NodePath("../../UILayer/JokePools")
+moodletCount = 4
+MoodletWeighting = Array[float]([50.0, 20.0, 20.0, 10.0])
 
 [node name="CrowdManager" type="Node" parent="."]
 script = ExtResource("2_5p3uy")
-CrowdSpawner = ExtResource("3_orsmw")
-CrowdEntity = ExtResource("2_c8lvu")
-VenueSize = Vector2(4, 8)
+CrowdSpawner = ExtResource("4_xmcao")
+CrowdEntity = ExtResource("5_fafhu")
+VenueSize = Vector2(5, 4)
 CrowdSize = 12
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("poolCollection", "microphone")]

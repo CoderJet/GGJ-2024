@@ -5,6 +5,14 @@ using GGJ24.Scripts.Resources;
 
 public partial class MoodletEntity : Button
 {
+	[Export] private TextureRect textureRect;
+	private MoodletData moodletData;
+	
+	public override void _Ready()
+	{
+		textureRect ??= GetNode<TextureRect>("Icon");
+	}
+	
 	public void SetMoodlet(MoodletData value)
 	{
 		moodletData = value;
@@ -14,12 +22,4 @@ public partial class MoodletEntity : Button
 	}
 	
 	public MoodletData GetMoodlet() => moodletData;
-
-	[Export] private TextureRect textureRect;
-	private MoodletData moodletData;
-
-	public override void _Ready()
-	{
-		textureRect ??= GetNode<TextureRect>("Select/Icon");
-	}
 }

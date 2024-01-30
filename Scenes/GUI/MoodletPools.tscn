@@ -512,7 +512,7 @@ offset_top = 99.0
 offset_right = 17.0
 offset_bottom = 99.0
 rotation = -0.218677
-Title = "Punch Line Topics"
+Title = "Punchline Topics"
 
 [node name="Punchlines" parent="." instance=ExtResource("2_dsp44")]
 offset_left = 25.0001
