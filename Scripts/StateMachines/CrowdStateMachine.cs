@@ -60,6 +60,19 @@ public partial class CrowdStateMachine : StateMachine
 	
 	protected override string GetTransition(float delta)
 	{
-		return State;
+		switch (entity.BonesTickled)
+		{
+			case 2:
+				// Haha, great story Mark!
+				return LaughState;
+			case 0:
+				// I hate this joke!
+				return AngryState;
+			case 1:
+			default:
+				// No reaction
+				return IdleState;
+		}
+		//return State;
 	}
 }
