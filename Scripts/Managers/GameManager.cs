@@ -9,33 +9,34 @@ using Utilities;
 public partial class GameManager : Node
 {
 	[ExportCategory("Crowd Config")] 
-	[Export] public Node CrowdCollection;
-	[Export] public CrowdManager crowdManager;
-	[Export] public MoodletPoolCollection moodletPoolCollection;
-	[Export] public Control crowdMoodBar;
-	[Export] public AudioStreamPlayer sfxAudioPlayer;
+	[Export] private Node2D crowdCollectionNode;
+	[Export] private CrowdManager crowdManager;
+	[Export] private MoodletPoolCollection moodletPoolCollection;
+	[Export] private Control crowdMoodBar;
+	[Export] private AudioStreamPlayer sfxAudioPlayer;
  
-	#region moodlet_settings
+	[ExportCategory("Moodlet Configuration")] 
 	// Applies to all pools
-	[Export] public int moodletCount;
+	[Export] private int moodletCount = 4;
 	// How to distribute the moodlets we assign (e.g. 0.4,0.3,0.2,0.1 would do 40%, 30%, 20%, 10%). 
-	[Export] public Array<float> MoodletWeighting;
- 
-    public Array<MoodletData> topicSet;
-    public Array<MoodletData> setupSet;
-    public Array<MoodletData> punchlineSet;
- 
-    #endregion
+	[Export] private Array<float> moodletWeighting;
+
+	private Array<MoodletData> topicSet;
+	private Array<MoodletData> setupSet;
+	private Array<MoodletData> punchlineSet;
  
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-	    if (moodletPoolCollection == null)
-	    {
-		    Logger.Info("HI!");
-		    moodletPoolCollection = GetNode<MoodletPoolCollection>("UILayer/JokePools");
-	    }
+	    crowdCollectionNode ??= GetParent().GetNode<Node2D>("CrowdCollection");
+	    crowdManager ??= GetParent().GetNode<CrowdManager>("CrowdManager");
+	    moodletPoolCollection ??= GetParent().GetNode<MoodletPoolCollection>("UILayer/MoodletPools");
+	    crowdMoodBar ??= GetParent().GetNode<Control>("UILayer/CrowdMoodBar");
+	    sfxAudioPlayer ??= GetParent().GetNode<AudioStreamPlayer>("SfxStreamPlayer");
  
+	    if (moodletWeighting == null || moodletWeighting?.Count == 0)
+		    moodletWeighting = new Array<float> { 0.4f, 0.3f, 0.2f, 0.1f };
+	    
 		moodletPoolCollection.Generate(moodletCount);
  
 	    moodletPoolCollection.SetupMoodletSet += moodlets => 
@@ -71,9 +72,9 @@ public partial class GameManager : Node
  
         //make a batched index list we can shuffle later
         List<int> topicList = new List<int>();
-        for (int mw = 0; mw < MoodletWeighting.Count; mw++)
+        for (int mw = 0; mw < moodletWeighting.Count; mw++)
 		{
-			int crowdChunk = (int)(crowdManager.CrowdSize * MoodletWeighting[mw]);
+			int crowdChunk = (int)(crowdManager.CrowdSize * moodletWeighting[mw]);
             for (int w = 0; w < crowdChunk;w++)
 			{
 				topicList.Add(mw);
@@ -122,7 +123,7 @@ public partial class GameManager : Node
         {
             //Logger.Info(((CrowdEntity)entity).TempValue);
  
-            CrowdCollection.AddChild(entity);
+            crowdCollectionNode.AddChild(entity);
         }
     }
     

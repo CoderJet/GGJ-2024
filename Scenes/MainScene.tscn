@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_syii6"]
 [ext_resource type="Script" path="res://Scripts/Managers/CrowdManager.cs" id="2_5p3uy"]
 [ext_resource type="PackedScene" uid="uid://bjvd1kaixh1jy" path="res://Scenes/GUI/CrowdMoodBar.tscn" id="4_27y2q"]
-[ext_resource type="PackedScene" uid="uid://cf27x6txyqcxv" path="res://Scenes/Entities/spawner.tscn" id="4_xmcao"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/spawner.tscn" id="4_xmcao"]
 [ext_resource type="Script" path="res://Scripts/StateMachines/PlayerStateMachine.cs" id="5_5xrfk"]
 [ext_resource type="PackedScene" uid="uid://dgajtjao07evj" path="res://Scenes/Entities/crowd_entity.tscn" id="5_fafhu"]
 [ext_resource type="Texture2D" uid="uid://tmhcb2ryreo5" path="res://Assets/Sprites/Room/stage.png" id="6_7flgk"]
@@ -27,7 +27,7 @@ CrowdSize = 12
 [node name="PlayerStateMachine" type="Node" parent="."]
 script = ExtResource("5_5xrfk")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SfxStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_p0jpc")
 
 [node name="Wall" type="Sprite2D" parent="."]
@@ -35,7 +35,7 @@ position = Vector2(481, 209)
 scale = Vector2(0.501485, 0.501485)
 texture = ExtResource("6_ci8tv")
 
-[node name="CrowdLayer" type="Node2D" parent="."]
+[node name="CrowdCollection" type="Node2D" parent="."]
 
 [node name="Stage" type="Sprite2D" parent="."]
 z_index = 12
@@ -68,4 +68,4 @@ offset_top = 10.0
 offset_bottom = 10.0
 grow_vertical = 1
 
-[node name="JokePools" parent="UILayer" instance=ExtResource("7_g0agk")]
+[node name="MoodletPools" parent="UILayer" instance=ExtResource("7_g0agk")]

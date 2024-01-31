@@ -5,10 +5,10 @@ using Utilities;
 
 public partial class PlayerStateMachine : StateMachine
 {
-	[Export] public Control poolCollection;
+	[Export] public Control moodletPools;
 	[Export] public Button microphone;
 	
-	private AnimationPlayer player;
+	private AnimationPlayer animPlayer;
 	
 	private const string IdleState = "IDLE";
 	private const string ThemeSetupState = "SETUP_THEME";
@@ -25,8 +25,11 @@ public partial class PlayerStateMachine : StateMachine
 		AddState(PunchlineState);
 	
 		SetState(IdleState);
-	
-		player = poolCollection.GetNode<AnimationPlayer>("AnimationPlayer");
+
+		moodletPools = GetParent().GetNode<Control>("UILayer/MoodletPools");
+		microphone = GetParent().GetNode<Button>("Stage/Mic/Button");
+		
+		animPlayer = moodletPools.GetNode<AnimationPlayer>("AnimationPlayer");
 		
 		base._Ready();
 	}
@@ -48,31 +51,31 @@ public partial class PlayerStateMachine : StateMachine
 		switch (newState)
 		{
 			case IdleState:
-				player.Play("PutBackSetupTopic");
-				await ToSignal(player, "animation_finished");
-				player.Play("PutBackSetup");
-				await ToSignal(player, "animation_finished");
-				player.Play("PutBackPunchlineTopic");
-				await ToSignal(player, "animation_finished");
-				player.Play("PutBackPunchline");
-				((MoodletPoolCollection)poolCollection).Reset();
+				animPlayer.Play("PutBackSetupTopic");
+				await ToSignal(animPlayer, "animation_finished");
+				animPlayer.Play("PutBackSetup");
+				await ToSignal(animPlayer, "animation_finished");
+				animPlayer.Play("PutBackPunchlineTopic");
+				await ToSignal(animPlayer, "animation_finished");
+				animPlayer.Play("PutBackPunchline");
+				((MoodletPoolCollection)moodletPools).Reset();
 				break;
 			case ThemeSetupState:
-				player.Play("ShowSetupTopic");
+				animPlayer.Play("ShowSetupTopic");
 				break;
 			case SetupState:
-				player.Play("ShowSetup");
+				animPlayer.Play("ShowSetup");
 				break;
 			case ThemePunchlineState:
-				player.Play("ShowPunchlineTopic");
+				animPlayer.Play("ShowPunchlineTopic");
 				break;
 			case PunchlineState:
-				player.Play("ShowPunchline");
+				animPlayer.Play("ShowPunchline");
 				break;
 		}
 		
-		if (player.IsPlaying())
-			await ToSignal(player, "animation_finished");
+		if (animPlayer.IsPlaying())
+			await ToSignal(animPlayer, "animation_finished");
 	}
 	
 	protected override async Task ExitState(string prevState, string newState)
@@ -82,21 +85,21 @@ public partial class PlayerStateMachine : StateMachine
 			case IdleState:
 				break;
 			case ThemeSetupState:
-				player.Play("PutAwaySetupTopic");
+				animPlayer.Play("PutAwaySetupTopic");
 				break;
 			case SetupState:
-				player.Play("PutAwaySetup");
+				animPlayer.Play("PutAwaySetup");
 				break;
 			case ThemePunchlineState:
-				player.Play("PutAwayPunchlineTopic");
+				animPlayer.Play("PutAwayPunchlineTopic");
 				break;
 			case PunchlineState:
-				player.Play("PutAwayPunchline");
+				animPlayer.Play("PutAwayPunchline");
 				break;
 		}
 		
-		if (player.IsPlaying())
-			await ToSignal(player, "animation_finished");
+		if (animPlayer.IsPlaying())
+			await ToSignal(animPlayer, "animation_finished");
 	}
 	
 	protected override void StateLogic(float delta)
@@ -116,7 +119,7 @@ public partial class PlayerStateMachine : StateMachine
 			return ThemeSetupState;
 		}
 
-		if (poolCollection is not MoodletPoolCollection moodletPool) 
+		if (moodletPools is not MoodletPoolCollection moodletPool) 
 			return State;
 		
 		if (moodletPool.PunchlineMoodlet != null)
