@@ -1,29 +1,20 @@
-using Godot;
-using Godot.Collections;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Utilities;
+using Godot;
+using Godot.Collections;
 
 public partial class CrowdManager : Node
 {
+	[ExportCategory("Crowd Configuration")]
 	[Export] public PackedScene CrowdSpawner;
 	[Export] public PackedScene CrowdEntity;
- 
+	[ExportCategory("Venue Configuration")]
 	[Export] public Vector2 VenueSize;
 	[Export] public int CrowdSize;
- 
-	protected List<int> spawnerIndex;
+
+	private List<int> spawnerIndex;
     public List<Node2D> spawners;
 	public List<Node2D> crowd;
- 
- 
-	public CrowdManager()
-	{
-		crowd = new List<Node2D>();
-		spawners = new List<Node2D>();
-        spawnerIndex = new List<int>();
-    }
  
 	[Signal] public delegate void OnSpawnersPopulatedEventHandler();
 	[Signal] public delegate void OnCrowdPopulatedEventHandler();
@@ -31,11 +22,14 @@ public partial class CrowdManager : Node
 	// Called when the node enters the scene tree for the first time.res://Scripts/Managers/CrowdManager.cs
 	public override void _Ready()
 	{
+		crowd = new List<Node2D>();
+		spawners = new List<Node2D>();
+		spawnerIndex = new List<int>();
 	}
  
 	public void GenerateSpawners()
 	{
-		Vector2 SpawnSpace = GetViewport().GetVisibleRect().Size;
+		var SpawnSpace = GetViewport().GetVisibleRect().Size;
 		//Give some distance from the edge of the room to prevent overlap. 10px each side?
 		SpawnSpace.X -= 20;
 		//Cut off 150 from the bottom for the stage, and 80 from the top for the UI
@@ -47,12 +41,11 @@ public partial class CrowdManager : Node
 		//shrink rows by 5% as we go backwards
 		var scale_offset = 20 - VenueSize.Y;
  
-		for(int y = 0; y < VenueSize.Y; y++)
+		for(var y = 0; y < VenueSize.Y; y++)
 		{
+			var row_scale = scale_offset / 20;
  
-			float row_scale = scale_offset / 20;
- 
-			for(int x = 0; x < VenueSize.X; x++)
+			for(var x = 0; x < VenueSize.X; x++)
 			{
 				var node = CrowdSpawner.Instantiate<Node2D>();
  
@@ -74,7 +67,6 @@ public partial class CrowdManager : Node
 				// Spacing offset
 				yPos += y * SpacingY * row_scale;
  
- 
                 node.Position = new Vector2(xPos, yPos);
 				node.ZIndex = y;
 				
@@ -88,9 +80,7 @@ public partial class CrowdManager : Node
  
 	public void GenerateCrowd()
 	{
-		Random rand = new Random();
- 
-		int CrowdCap = Math.Clamp(CrowdSize, 1, (int)(VenueSize.X * VenueSize.Y));
+		var CrowdCap = Math.Clamp(CrowdSize, 1, (int)(VenueSize.X * VenueSize.Y));
  
         for (var i = 0; i < CrowdCap; i++)
 		{	
@@ -98,10 +88,10 @@ public partial class CrowdManager : Node
 			
 			// TODO: Setup up the crowd internal data 'ere.
 			node.ZIndex = 1;
-			node.Position = Vector2.Zero;//new Vector2(GD.RandRange(-500, 500), GD.RandRange(50, 150));
+			node.Position = Vector2.Zero;
  
             crowd.Add(node);
-			int index = rand.Next(0,spawnerIndex.Count);
+			var index = GD.RandRange(0, spawnerIndex.Count);
             spawners[spawnerIndex[index]].AddChild(node);
 			spawnerIndex.RemoveAt(index);
 		}
@@ -112,7 +102,7 @@ public partial class CrowdManager : Node
 	public int Joke(Array<MoodletData> joke)
 	{
 		// Initially reaction is neutral
-		int reaction = 0;
+		var reaction = 0;
  
 		foreach(var node in crowd)
 		{			
@@ -122,19 +112,15 @@ public partial class CrowdManager : Node
                     // If they dislike the joke, shift reaction towards negative
                     reaction--;
 					break;
- 
 				case 1:
 					// If they're ambivalent, do nothing
 					break;
- 
 				default:
 					// Otherwise, shift towards positive
 					reaction++;
 					break;
 			}
- 
         }
- 
 		return reaction;
 	}
 }

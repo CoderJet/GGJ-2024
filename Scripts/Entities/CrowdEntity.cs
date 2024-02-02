@@ -1,5 +1,4 @@
 using System.Linq;
-
 using Godot;
 using Godot.Collections;
 
@@ -50,13 +49,10 @@ public partial class CrowdEntity : Node2D
 	public void PlayLaughingAnimation()
 	{
 		animPlayer.Play("Laughing");
-		//await ToSignal(animPlayer, "animation_finished");
-		
 	}
 
 	public void PlayAngryAnimation()
 	{
 		animPlayer.Play("Angry");
-		//await ToSignal(animPlayer, "animation_finished");
 	}
 }

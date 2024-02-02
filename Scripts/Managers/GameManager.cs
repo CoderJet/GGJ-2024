@@ -1,9 +1,7 @@
-using Godot;
-using Godot.Collections;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using Audio;
+using Godot;
+using Godot.Collections;
 using Utilities;
 
 public partial class GameManager : Node
@@ -39,6 +37,7 @@ public partial class GameManager : Node
 	    
 		moodletPoolCollection.Generate(moodletCount);
  
+		// TODO: Make _Ready A LOT smaller.
 	    moodletPoolCollection.SetupMoodletSet += moodlets => 
 	    {
 		    var result = crowdManager.Joke(moodlets);
@@ -62,7 +61,6 @@ public partial class GameManager : Node
 	    };
 	    
         crowdManager.OnSpawnersPopulated += OnOnSpawnersPopulated;
-        crowdManager.OnCrowdPopulated += OnOnCrowdPopulated;
  
         crowdManager.GenerateSpawners();
         crowdManager.GenerateCrowd();
@@ -121,22 +119,7 @@ public partial class GameManager : Node
     {
         foreach (var entity in crowdManager.spawners)
         {
-            //Logger.Info(((CrowdEntity)entity).TempValue);
- 
             crowdCollectionNode.AddChild(entity);
         }
     }
-    
-	private void OnOnCrowdPopulated()
-	{
-		// foreach (var entity in crowdManager.crowd)
-		// {
-		// 	var data = crowdEntity.Instantiate() as CrowdEntity;
-		// 	data.SetScript(entity);
- 	//
-		// 	CrowdEntity t = data as CrowdEntity;
-		// 				
-		// 	CrowdCollection.AddChild(entity);
-		// }
-	}
 }

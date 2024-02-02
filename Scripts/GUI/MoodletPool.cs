@@ -1,8 +1,5 @@
 using Godot;
-using System;
-using System.Collections.Generic;
 using Godot.Collections;
-using Utilities;
 
 public partial class MoodletPool : Control
 {
@@ -32,7 +29,6 @@ public partial class MoodletPool : Control
 	private void OnPressed(Button button)
 	{
 		var data = ((MoodletEntity)button).GetMoodlet();
-		
 		EmitSignal("OnMoodletSelected", data);
 	}
 	

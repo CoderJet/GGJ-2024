@@ -1,7 +1,4 @@
 using Godot;
-using System;
-using System.Net.Mime;
-using GGJ24.Scripts.Resources;
 
 public partial class MoodletEntity : Button
 {

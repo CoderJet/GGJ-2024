@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using Godot.Collections;
 
 public partial class MoodletPoolCollection : Control
@@ -33,9 +32,9 @@ public partial class MoodletPoolCollection : Control
  
 	public void Generate(int poolSize)
 	{
-        TopicList = new Array<MoodletData>(MoodletBuilder.Instance.GenerateMoodletList(JokeType.Left, poolSize));
-        SetupList = new Array<MoodletData>(MoodletBuilder.Instance.GenerateMoodletList(JokeType.Middle, poolSize));
-        PunchlineList = new Array<MoodletData>(MoodletBuilder.Instance.GenerateMoodletList(JokeType.Right, poolSize));
+        TopicList = new Array<MoodletData>(MoodletBuilder.GenerateMoodletList(JokeType.Left, poolSize));
+        SetupList = new Array<MoodletData>(MoodletBuilder.GenerateMoodletList(JokeType.Middle, poolSize));
+        PunchlineList = new Array<MoodletData>(MoodletBuilder.GenerateMoodletList(JokeType.Right, poolSize));
         
         ((MoodletPool)SetupTopics).GenerateMoodletEntities(TopicList);
         ((MoodletPool)PunchlineTopics).GenerateMoodletEntities(TopicList);

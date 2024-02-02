@@ -1,28 +1,19 @@
-using Godot;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Godot.Collections;
-using Utilities;
-using FileAccess = Godot.FileAccess;
 using System.Linq;
-using System.Diagnostics;
-
-public enum JokeType
-{
-    Left,
-    Middle,
-    Right
-}
+using Godot;
+using Godot.Collections;
+using FileAccess = Godot.FileAccess;
+using Utilities;
 
 public partial class MoodletBuilder : Node
 {
+	#region Singleton Magic
 	public static MoodletBuilder Instance => instance ?? new MoodletBuilder();
 	private static MoodletBuilder instance;
+	#endregion
 		
 	private static Array<MoodletData> moodletCollection;
- 
-    public MoodletBuilder()
+
+	private MoodletBuilder()
 	{
         // res://Scenes/Resources/Moodlets/
         moodletCollection = new Array<MoodletData>();
@@ -48,24 +39,22 @@ public partial class MoodletBuilder : Node
 			fileName = dir.GetNext();
 		}
 	}
-	public Array<MoodletData> GenerateMoodletList(JokeType type, int qty = 4)
+	public static Array<MoodletData> GenerateMoodletList(JokeType type, int qty = 4)
 	{
-		Array<MoodletData> data = new Array<MoodletData>();
- 
-        Array<MoodletData> sub_list = new Array<MoodletData>(moodletCollection.Where(x => x.Type == type));
+		var data = new Array<MoodletData>();
+		var sub_list = new Array<MoodletData>(moodletCollection.Where(x => x.Type == type));
 	
         for (var i = 0; i < qty; i++)
 		{
-            MoodletData temp;
             if (data.Count == sub_list.Count) return data;
             
+            MoodletData temp;
 			do
             {
                 temp = sub_list.PickRandom();
 			} while (data.Contains(temp));
 			data.Add(temp);
 		}
-		
 		return data;
 	}
 }

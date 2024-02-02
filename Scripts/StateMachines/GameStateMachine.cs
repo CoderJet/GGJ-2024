@@ -1,6 +1,5 @@
-using Godot;
-using System;
 using System.Threading.Tasks;
+using Godot;
 using Utilities;
 
 public partial class GameStateMachine : StateMachine
@@ -12,7 +11,7 @@ public partial class GameStateMachine : StateMachine
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		moodletPools = GetParent().GetParent().GetNode<MoodletPoolCollection>("UILayer/JokePools");
+		moodletPools = GetParent().GetParent().GetNode<MoodletPoolCollection>("UILayer/MoodletPools");
 	}
 	
 	public override void Reset()
