@@ -12,20 +12,12 @@ public partial class CrowdManager : Node
 	[Export] public Vector2 VenueSize;
 	[Export] public int CrowdSize;
 
-	private List<int> spawnerIndex;
-    public List<Node2D> spawners;
-	public List<Node2D> crowd;
+	private List<int> spawnerIndex = new();
+    public List<Node2D> spawners = new();
+	public List<Node2D> crowd = new();
  
 	[Signal] public delegate void OnSpawnersPopulatedEventHandler();
 	[Signal] public delegate void OnCrowdPopulatedEventHandler();
-	
-	// Called when the node enters the scene tree for the first time.res://Scripts/Managers/CrowdManager.cs
-	public override void _Ready()
-	{
-		crowd = new List<Node2D>();
-		spawners = new List<Node2D>();
-		spawnerIndex = new List<int>();
-	}
  
 	public void GenerateSpawners()
 	{
@@ -91,7 +83,7 @@ public partial class CrowdManager : Node
 			node.Position = Vector2.Zero;
  
             crowd.Add(node);
-			var index = GD.RandRange(0, spawnerIndex.Count);
+			var index = GD.RandRange(0, spawnerIndex.Count - 1);
             spawners[spawnerIndex[index]].AddChild(node);
 			spawnerIndex.RemoveAt(index);
 		}
