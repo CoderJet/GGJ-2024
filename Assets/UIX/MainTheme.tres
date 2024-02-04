@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cc6io0o5jbd3a"]
+
+[ext_resource type="FontFile" uid="uid://c5pq6iry3apt3" path="res://Assets/UIX/Fonts/Kenney Future.ttf" id="1_t54lo"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_txfud"]
+thickness = 4
+
+[resource]
+CanvasItem/colors/font_color = Color(1, 1, 1, 1)
+CanvasItem/colors/font_outline_color = Color(0, 0, 0, 1)
+CanvasItem/constants/outline_size = 2
+CanvasItem/fonts/font = ExtResource("1_t54lo")
+Slider/styles/slider = SubResource("StyleBoxLine_txfud")

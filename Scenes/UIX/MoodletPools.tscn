@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://7gjxwangx8re"]
 
-[ext_resource type="Script" path="res://Scripts/GUI/MoodletPoolCollection.cs" id="1_jpp2c"]
-[ext_resource type="PackedScene" uid="uid://diilkk26tajl5" path="res://Scenes/GUI/JokePool.tscn" id="2_dsp44"]
+[ext_resource type="Script" path="res://Scripts/UIX/MoodletPoolCollection.cs" id="1_jpp2c"]
+[ext_resource type="PackedScene" uid="uid://diilkk26tajl5" path="res://Scenes/UIX/JokePool.tscn" id="2_dsp44"]
 
 [sub_resource type="Animation" id="Animation_g15or"]
 resource_name = "PutAwayPunchline"

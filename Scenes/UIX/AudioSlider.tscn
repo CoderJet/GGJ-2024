@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgso4h0tm5nqd"]
+
+[ext_resource type="Theme" uid="uid://cc6io0o5jbd3a" path="res://Assets/UIX/MainTheme.tres" id="1_3sdr3"]
+[ext_resource type="Script" path="res://Scenes/UIX/AudioSliderControl.cs" id="1_rf3nu"]
+
+[node name="AudioSliderControl" type="Control" node_paths=PackedStringArray("volumeLabel")]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_3sdr3")
+script = ExtResource("1_rf3nu")
+labelText = "Volume :"
+volumeLabel = NodePath("VolumeLabel")
+
+[node name="VolumeLabel" type="Label" parent="."]
+layout_mode = 2
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 31.0
+text = "Volume :"
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+layout_mode = 2
+offset_left = 144.0
+offset_top = 8.0
+offset_right = 400.0
+offset_bottom = 31.0
+value = 50.0
