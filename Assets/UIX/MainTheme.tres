@@ -1,13 +1,30 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cc6io0o5jbd3a"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cc6io0o5jbd3a"]
 
 [ext_resource type="FontFile" uid="uid://c5pq6iry3apt3" path="res://Assets/UIX/Fonts/Kenney Future.ttf" id="1_t54lo"]
+[ext_resource type="Texture2D" uid="uid://c8sb1v3tp425b" path="res://Assets/Sprites/UIX/SliderButton.png" id="2_lc1lg"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_txfud"]
-thickness = 4
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qjgjj"]
+color = Color(0.533333, 0.533333, 0.533333, 1)
+thickness = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_b10ne"]
+color = Color(0.733333, 0.733333, 0.733333, 1)
+thickness = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hjgsa"]
+color = Color(0.129412, 0.129412, 0.129412, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 5
 
 [resource]
 CanvasItem/colors/font_color = Color(1, 1, 1, 1)
 CanvasItem/colors/font_outline_color = Color(0, 0, 0, 1)
 CanvasItem/constants/outline_size = 2
 CanvasItem/fonts/font = ExtResource("1_t54lo")
-Slider/styles/slider = SubResource("StyleBoxLine_txfud")
+HSlider/styles/grabber_area = SubResource("StyleBoxLine_qjgjj")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_b10ne")
+HSlider/styles/slider = SubResource("StyleBoxLine_hjgsa")
+Slider/icons/grabber = ExtResource("2_lc1lg")
+Slider/icons/grabber_disabled = ExtResource("2_lc1lg")
+Slider/icons/grabber_highlight = ExtResource("2_lc1lg")
