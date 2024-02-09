@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://cc6io0o5jbd3a" path="res://Assets/UIX/MainTheme.tres" id="1_3sdr3"]
 [ext_resource type="Script" path="res://Scenes/UIX/AudioSliderControl.cs" id="1_rf3nu"]
 
-[node name="AudioSliderControl" type="BoxContainer"]
+[node name="AudioSliderControl" type="BoxContainer" node_paths=PackedStringArray("volumeLabel", "volumeSlider")]
 anchors_preset = -1
 anchor_right = 0.266667
 anchor_bottom = 0.0888889
@@ -12,7 +12,9 @@ grow_vertical = 2
 theme = ExtResource("1_3sdr3")
 vertical = true
 script = ExtResource("1_rf3nu")
-labelText = null
+labelText = "Volume :"
+volumeLabel = NodePath("VolumeLabel")
+volumeSlider = NodePath("VolumeSlider")
 metadata/_edit_use_anchors_ = true
 
 [node name="VolumeLabel" type="Label" parent="."]
@@ -22,6 +24,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VolumeSlider" type="HSlider" parent="."]
+clip_contents = true
 layout_mode = 2
 step = 5.0
 value = 50.0

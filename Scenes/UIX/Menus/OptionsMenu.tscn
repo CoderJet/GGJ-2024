@@ -19,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.870588)
+color = Color(0, 0, 0, 0.686275)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -35,23 +35,17 @@ offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MasterSliderControl" parent="VBoxContainer" node_paths=PackedStringArray("volumeLabel", "volumeSlider") instance=ExtResource("2_aivki")]
+[node name="MasterSliderControl" parent="VBoxContainer" instance=ExtResource("2_aivki")]
 layout_mode = 2
 labelText = "Master Volume :"
-volumeLabel = NodePath("VolumeLabel")
-volumeSlider = NodePath("VolumeSlider")
 
-[node name="MusicSliderControl" parent="VBoxContainer" node_paths=PackedStringArray("volumeLabel", "volumeSlider") instance=ExtResource("2_aivki")]
+[node name="MusicSliderControl" parent="VBoxContainer" instance=ExtResource("2_aivki")]
 layout_mode = 2
 labelText = "Music Volume :"
-volumeLabel = NodePath("VolumeLabel")
-volumeSlider = NodePath("VolumeSlider")
 
-[node name="EffectsSliderControl" parent="VBoxContainer" node_paths=PackedStringArray("volumeLabel", "volumeSlider") instance=ExtResource("2_aivki")]
+[node name="EffectsSliderControl" parent="VBoxContainer" instance=ExtResource("2_aivki")]
 layout_mode = 2
 labelText = "Effects Volume :"
-volumeLabel = NodePath("VolumeLabel")
-volumeSlider = NodePath("VolumeSlider")
 
 [node name="SpaceBuffer" type="Control" parent="VBoxContainer"]
 layout_mode = 2
